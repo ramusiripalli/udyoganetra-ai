@@ -1,4 +1,9 @@
+import Footer from "../components/common/Footer";
+import CallToAction from "../components/LandingPage/CallToAction";
+import FeaturesSection from "../components/LandingPage/FeaturesSection";
 import HeroSection from "../components/LandingPage/HeroSection";
+import HowItWorks from "../components/LandingPage/HowItWorks";
+import ShowcaseSection from "../components/LandingPage/ShowcaseSection";
 import WhyUdyogaNetra from "../components/LandingPage/WhyUdyogaNetra";
 
 const Landing = () => {
@@ -9,6 +14,11 @@ const Landing = () => {
     
        <HeroSection />
        <WhyUdyogaNetra />
+       <FeaturesSection />
+       <HowItWorks/>
+       <ShowcaseSection/>
+       <CallToAction/>
+       <Footer/>
 
     </div>
   );
