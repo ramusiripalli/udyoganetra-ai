@@ -1,8 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/common/Navbar";
-
-import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
@@ -10,6 +8,7 @@ import Jobs from "./pages/Jobs";
 import ResumeAnalyzer from "./pages/ResumeAnalyzer";
 import InterviewPrep from "./pages/InterviewPrep";
 import JobMatch from "./pages/JobMatch";
+import Landing from "./pages/Landing";
 
 function App() {
   return (
@@ -33,7 +32,7 @@ function App() {
         {/* Padding so navbar does not overlap */}
         <main className="pt-24">
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Landing />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/dashboard" element={<Dashboard />} />
