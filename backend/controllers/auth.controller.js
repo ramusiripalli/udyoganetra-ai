@@ -88,3 +88,23 @@ export const loginUser = async (req, res) => {
   }
 
 };
+
+
+export const getUserProfile = async (req, res) => {
+
+  try {
+
+    res.status(200).json({
+      _id: req.user._id,
+      name: req.user.name,
+      email: req.user.email
+    });
+
+  } catch (error) {
+
+    res.status(500).json({
+      message: error.message
+    });
+
+  }
+};
