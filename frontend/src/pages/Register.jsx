@@ -86,7 +86,7 @@ const Register = () => {
         initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.9 }}
-        className="relative w-full max-w-md mt-5 p-6 md:p-8 rounded-3xl bg-white/80 dark:bg-slate-900/60 backdrop-blur-2xl border border-slate-200 dark:border-cyan-500/20 shadow-xl shadow-red-500 dark:shadow-shadow-red-500 transition-all"
+        className="relative w-full max-w-md mt-5 mb-10 p-6 md:p-8 rounded-3xl bg-white/80 dark:bg-slate-900/60 backdrop-blur-xl border border-slate-200 dark:border-cyan-500/20 shadow-xl shadow-cyan-500 transition-all"
       >
         {/* Premium dot */}
         <div className="absolute -top-2 -right-2 w-4 h-4 bg-cyan-400 rounded-full animate-pulse" />
