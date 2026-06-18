@@ -101,6 +101,7 @@ const Navbar = () => {
           </Link>
 
           {/* CTA */}
+          <Link to="/register">
           <button
             className="
               hidden md:block
@@ -113,6 +114,7 @@ const Navbar = () => {
           >
             Get Started
           </button>
+          </Link>
 
           {/* Mobile Menu */}
           <button
