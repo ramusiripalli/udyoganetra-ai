@@ -9,6 +9,8 @@ import ResumeAnalyzer from "./pages/ResumeAnalyzer";
 import InterviewPrep from "./pages/InterviewPrep";
 import JobMatch from "./pages/JobMatch";
 import Landing from "./pages/Landing";
+import AIFeatures from "./pages/AIFeatures";
+import Footer from "./components/common/Footer";
 
 function App() {
   return (
@@ -29,12 +31,14 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/ai-features" element={<AIFeatures />} />
             <Route path="/jobs" element={<Jobs />} />
             <Route path="/resume-analyzer" element={<ResumeAnalyzer />} />
             <Route path="/interview-prep" element={<InterviewPrep />} />
             <Route path="/job-match" element={<JobMatch />} />
           </Routes>
         </main>
+         <Footer/>
       </div>
     </BrowserRouter>
   );

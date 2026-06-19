@@ -51,7 +51,7 @@ const WhyUdyogaNetra = () => {
               viewport={{ once: true }}
             >
 
-              <div className="w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center text-black dark:text-white font-bold text-xl mb-4 mx-auto">
+              <div className="w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center text-white font-bold text-xl mb-4 mx-auto">
                 {index + 1}
               </div>
 

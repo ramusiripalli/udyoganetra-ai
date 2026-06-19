@@ -1,68 +1,146 @@
 import { motion } from "framer-motion";
 
-const aiTools = [
-  "Resume Analyzer",
-  "ATS Score Checker",
-  "AI Job Matching",
-  "Interview Simulator",
-  "Skill Gap Detection",
-  "Career Roadmap",
-  "Salary Insights",
-  "Smart Job Tracker",
+const showcaseText = [
+  "LinkedIn Jobs",
+  "Naukri Listings",
+  "Indeed Alerts",
+  "Hirect Hiring",
+  "Wellfound (AngelList)",
+  "Y Combinator Startups",
+  "Instahyre",
+  "MAANG Openings",
+  "Internshala",
+  "FreshersWorld",
+  "CutShort.io",
+  "Toptal / Fiverr / Upwork",
 ];
 
 const ShowcaseSection = () => {
   return (
-    <section className="py-20 px-6 sm:px-8 bg-white dark:bg-slate-900 transition-colors">
+    <section
+      className=" py-24 px-6 sm:px-8 bg-white dark:bg-black
+      transition-all duration-500 "
+    >
+      {/* Heading */}
 
-      <motion.div
-        className="max-w-7xl mx-auto text-center"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
+      <div className="text-center mb-14 max-w-4xl mx-auto">
 
-        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
-          AI Tools Built For <span className="text-cyan-500">Job Seekers</span>
+        <h2 className="text-3xl sm:text-5xl font-bold text-gray-900 dark:text-white">
+
+          One Platform.{" "}
+          <span className="bg-linear-to-r from-purple-600 via-fuchsia-500 to-pink-600 text-transparent bg-clip-text">All Opportunities.</span>
+
         </h2>
 
-        <p className="mt-4 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-          Powerful AI modules designed to help users grow faster and make smarter career decisions.
+        <p className="mt-5 text-gray-600 dark:text-slate-200 text-base sm:text-lg leading-relaxed">
+
+          Access opportunities from top hiring platforms in one place.
+          No more switching between multiple job portals — everything
+          you need for your career journey is available inside UdyogaNetra AI.
+
         </p>
+      </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-14">
+      {/* Cards */}
 
-          {aiTools.map((tool, index) => (
-            <motion.div
-              key={index}
+      <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+
+        {showcaseText.map((text, index) => (
+          <motion.div
+            key={index}
+            className="
+            group
+            relative
+            rounded-2xl
+            p-5
+            bg-white
+            dark:bg-slate-900/30
+            border border-purple-200 dark:border-purple-600/30
+            shadow-md hover:shadow-xl
+            transition-all duration-500
+            hover:-translate-y-2
+            overflow-hidden
+            "
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.05 }}
+            viewport={{ once: true }}
+          >
+            {/* Hover Glow */}
+
+            <div
               className="
-                p-6 rounded-xl
-                bg-gray-50 dark:bg-slate-800
-                border border-gray-200 dark:border-slate-700
-                shadow-lg hover:shadow-xl
-                hover:-translate-y-2
-                transition-all duration-300
+              absolute inset-0
+              opacity-0 group-hover:opacity-100
+              transition duration-500
+              bg-gradient-to-r
+              from-cyan-500/5
+              to-purple-500/5
               "
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: index * 0.08 }}
-              viewport={{ once: true }}
+            ></div>
+
+            {/* Badge */}
+
+            <div
+              className="
+              absolute top-3 right-3
+              text-[10px] sm:text-xs
+              px-2 py-1
+              rounded-full bg-white border
+              dark:bg-cyan-500/10
+              text-yellow-500
+              font-medium
+              "
             >
+              Source
+            </div>
 
-              <div className="w-12 h-12 rounded-full bg-gradient-to-r from-cyan-400 to-purple-500 mx-auto mb-4 flex items-center justify-center text-black font-bold">
-                AI
-              </div>
+            {/* Text */}
 
-              <h3 className="text-sm sm:text-base font-semibold text-gray-900 dark:text-white">
-                {tool}
+            <div className="relative z-10 flex items-center justify-center min-h-[90px]">
+
+              <h3
+                className="
+                text-sm sm:text-base lg:text-lg
+                font-semibold
+                text-gray-900 dark:text-white
+                text-center
+                leading-relaxed
+                group-hover:text-pink-500
+                transition duration-300
+                typewriter
+                "
+              >
+                {text}
               </h3>
 
-            </motion.div>
-          ))}
+            </div>
+          </motion.div>
+        ))}
+      </div>
 
-        </div>
-      </motion.div>
+      {/* Animations */}
+
+      <style>{`
+        .typewriter {
+          overflow: hidden;
+          white-space: nowrap;
+          border-right: 2px solid cyan;
+          animation: typing 6s steps(20) infinite, blink 1s step-end infinite;
+        }
+
+        @keyframes typing {
+          0% { width: 0 }
+          40% { width: 100% }
+          60% { width: 100% }
+          100% { width: 0 }
+        }
+
+        @keyframes blink {
+          0%, 100% { border-color: transparent }
+          50% { border-color: #06b6d4; }
+        }
+      `}</style>
     </section>
   );
 };
