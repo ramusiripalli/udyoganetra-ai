@@ -1,6 +1,4 @@
-import Footer from "../components/common/Footer";
 import CallToAction from "../components/LandingPage/CallToAction";
-import FeaturesSection from "../components/LandingPage/FeaturesSection";
 import HeroSection from "../components/LandingPage/HeroSection";
 import HowItWorks from "../components/LandingPage/HowItWorks";
 import ShowcaseSection from "../components/LandingPage/ShowcaseSection";
@@ -12,11 +10,9 @@ const Landing = () => {
       overflow-hidden">
        <HeroSection />
        <WhyUdyogaNetra />
-       <FeaturesSection />
+        <ShowcaseSection/>
        <HowItWorks/>
-       <ShowcaseSection/>
        <CallToAction/>
-       <Footer/>
 
     </div>
   );

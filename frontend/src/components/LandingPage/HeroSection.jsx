@@ -34,7 +34,7 @@ const HeroSection = () => {
 
           <Link
             to="/register"
-            className="px-7 py-3 rounded-full font-semibold bg-gradient-to-r from-purple-600 to-pink-500 text-white shadow-lg hover:scale-105 transition duration-300"
+            className="px-7 py-3 rounded-full font-semibold bg-linear-to-r from-purple-600 to-pink-500 text-white shadow-lg hover:scale-105 transition duration-300"
           >
             Get Started
           </Link>
@@ -99,7 +99,7 @@ const HeroSection = () => {
           </div>
 
           <div className="mt-8 p-3 rounded-xl bg-white dark:bg-black border border-pink-500/50">
-            <p className="text-md text-pink-600  dark:text-white text-center">
+            <p className="text-md text-pink-600  dark:text-yellow-300 text-center">
               AI is analyzing your career growth opportunities...
             </p>
           </div>

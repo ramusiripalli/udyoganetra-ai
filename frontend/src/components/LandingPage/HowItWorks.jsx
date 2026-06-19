@@ -8,7 +8,7 @@ import {
 
 const steps = [
   {
-    icon: <FaUpload className="text-3xl text-cyan-500" />,
+    icon: <FaUpload className="text-3xl text-pink-500" />,
     title: "Upload Resume",
     desc: "Start by uploading your resume and career profile into the platform.",
   },
@@ -18,7 +18,7 @@ const steps = [
     desc: "Our AI studies your strengths, weaknesses, and overall career readiness.",
   },
   {
-    icon: <FaSearch className="text-3xl text-blue-500" />,
+    icon: <FaSearch className="text-3xl text-red-500" />,
     title: "Get Smart Recommendations",
     desc: "Receive personalized job suggestions and identify missing skills instantly.",
   },
@@ -31,11 +31,7 @@ const steps = [
 
 const HowItWorks = () => {
   return (
-    <section className="py-20 px-6 sm:px-8 bg-gray-50 dark:bg-slate-950 relative overflow-hidden">
-
-      {/* Background Glow */}
-      <div className="absolute top-20 left-10 w-44 h-44 bg-cyan-400/10 blur-3xl rounded-full"></div>
-      <div className="absolute bottom-10 right-10 w-52 h-52 bg-purple-500/10 blur-3xl rounded-full"></div>
+    <section className="py-20 px-6 sm:px-8 bg-gray-100 dark:bg-slate-950 relative overflow-hidden">
 
       <motion.div
         className="relative z-10 max-w-7xl mx-auto text-center"
@@ -46,7 +42,7 @@ const HowItWorks = () => {
       >
 
         <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
-          How It <span className="text-cyan-500">Works</span>
+          How It <span className="text-purple-500">Works</span>
         </h2>
 
         <p className="mt-4 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
@@ -75,7 +71,7 @@ const HowItWorks = () => {
                 {step.icon}
               </div>
 
-              <div className="w-8 h-8 rounded-full bg-gradient-to-r from-cyan-400 to-purple-500 text-black font-bold flex items-center justify-center mx-auto mb-4">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-r from-purple-600 to-pink-700 text-black font-bold flex items-center justify-center mx-auto mb-4">
                 {index + 1}
               </div>
 

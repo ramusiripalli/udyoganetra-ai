@@ -6,17 +6,17 @@ const Footer = () => {
 
         {/* Logo */}
         <h3 className="text-xl font-bold">
-          <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 text-transparent bg-clip-text">
+          <span className="bg-gradient-to-r from-purple-600  to-pink-600 text-transparent bg-clip-text">
             Udyoga
           </span>
 
           <span className="text-gray-900 dark:text-white">
-            Netra
+            Netra <span className="text-pink-600"> AI</span>
           </span>
         </h3>
 
         {/* Copyright */}
-        <p className="text-sm text-gray-500 dark:text-gray-400">
+        <p className="text-sm text-gray-500 dark:text-white">
           © 2026 AI Powered Career Platform
         </p>
 

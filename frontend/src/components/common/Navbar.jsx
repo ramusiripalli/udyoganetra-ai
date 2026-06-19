@@ -35,26 +35,26 @@ const Navbar = () => {
 
           <Link
             to="/"
-            className="text-black dark:text-gray-200 hover:text-cyan-400 transition
-            relative after:absolute after:w-0 after:h-0.5 after:bg-cyan-400 after:left-0 after:-bottom-1 hover:after:w-full after:transition-all"
+            className="text-black dark:text-gray-200 hover:text-pink-500 transition
+            relative after:absolute after:w-0 after:h-0.5 after:bg-pink-500 after:left-0 after:-bottom-1 hover:after:w-full after:transition-all"
           >
             Home
           </Link>
 
           <Link
             to="/jobs"
-            className="text-black dark:text-gray-200 hover:text-cyan-400 transition
-            relative after:absolute after:w-0 after:h-0.5 after:bg-cyan-400 after:left-0 after:-bottom-1 hover:after:w-full after:transition-all"
+            className="text-black dark:text-gray-200 hover:text-pink-500 transition
+            relative after:absolute after:w-0 after:h-0.5 after:bg-pink-500 after:left-0 after:-bottom-1 hover:after:w-full after:transition-all"
           >
             Jobs
           </Link>
 
           <Link
-            to="/ai-tools"
-            className="text-black dark:text-gray-200 hover:text-cyan-400 transition
-            relative after:absolute after:w-0 after:h-0.5 after:bg-cyan-400 after:left-0 after:-bottom-1 hover:after:w-full after:transition-all"
+            to="/ai-features"
+            className="text-black dark:text-gray-200 hover:text-pink-500 transition
+            relative after:absolute after:w-0 after:h-0.5 after:bg-pink-500 after:left-0 after:-bottom-1 hover:after:w-full after:transition-all"
           >
-            AI Tools
+            AI Features
           </Link>
         </div>
 
