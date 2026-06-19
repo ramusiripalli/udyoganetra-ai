@@ -1,11 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Toaster, toast } from "react-hot-toast";
 import { motion } from "framer-motion";
 
+import { useDispatch, useSelector } from "react-redux";
+import { loginUser } from "../features/auth/authSlice";
+
 const Login = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  // getting redux state
+  const { userInfo, loading, error } = useSelector(
+    (state) => state.auth
+  );
 
   const [formData, setFormData] = useState({
     email: "",
@@ -13,6 +22,24 @@ const Login = () => {
   });
 
   const [showPassword, setShowPassword] = useState(false);
+
+  // if login success → redirect
+  useEffect(() => {
+    if (userInfo) {
+      toast.success("Login successful 🚀");
+
+      setTimeout(() => {
+        navigate("/");
+      }, 1000);
+    }
+  }, [userInfo, navigate]);
+
+  // if login error → show toast
+  useEffect(() => {
+    if (error) {
+      toast.error(error);
+    }
+  }, [error]);
 
   // reusable styles
   const inputStyle =
@@ -28,20 +55,19 @@ const Login = () => {
     });
   };
 
+  // submit
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const { email, password } = formData;
 
+    // validation
     if (!email || !password) {
       return toast.error("Please fill all fields");
     }
 
-    toast.success("Login UI ready 🚀");
-    console.log(formData);
-
-    // backend later
-    navigate("/");
+    // dispatch redux thunk
+    dispatch(loginUser(formData));
   };
 
   return (
@@ -67,22 +93,20 @@ const Login = () => {
       overflow-x-hidden
     "
     >
-      {/* Toast */}
       <Toaster position="top-right" />
 
-      {/* Background blur effects */}
+      {/* Background blur */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-orange-300/30 dark:bg-cyan-500/20 rounded-full blur-[120px]" />
 
       <div className="absolute bottom-10 right-10 w-80 h-80 bg-green-300/30 dark:bg-purple-500/20 rounded-full blur-[140px]" />
 
-      {/* Login Card */}
+      {/* Card */}
       <motion.div
         initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.9 }}
-        className="relative w-full max-w-md p-6 md:p-8 rounded-3xl bg-white/80 dark:bg-slate-900/60 backdrop-blur-2xl border border-slate-200 dark:border-cyan-500/20 shadow-xl shadow-cyan-900  transition-all"
+        className="relative w-full max-w-md p-6 md:p-8 rounded-3xl bg-white/80 dark:bg-slate-900/60 backdrop-blur-2xl border border-slate-200 dark:border-cyan-500/20 shadow-xl shadow-cyan-900 transition-all"
       >
-        {/* Premium Dot */}
         <div className="absolute -top-2 -right-2 w-4 h-4 bg-cyan-400 rounded-full animate-pulse" />
 
         {/* Heading */}
@@ -127,15 +151,14 @@ const Login = () => {
             </span>
           </div>
 
-         
-
           {/* Button */}
           <motion.button
             whileHover={{ scale: 1.02 }}
             type="submit"
+            disabled={loading}
             className="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-600 text-white font-semibold text-lg transition-all shadow-xl shadow-blue-300/30 dark:shadow-blue-500/20"
           >
-            Login
+            {loading ? "Logging in..." : "Login"}
           </motion.button>
         </form>
 
