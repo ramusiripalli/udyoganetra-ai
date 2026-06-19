@@ -17,20 +17,13 @@ function App() {
       {/* Main Theme Wrapper */}
      
       <div
-        className="
-        min-h-screen
-        bg-white
-        dark:bg-[#0B0F19]
-        text-black
-        dark:text-white
-        transition-all duration-500
-        "
-      >
+        className="min-h-screen bg-white dark:bg-[#0b0c19] text-black dark:text-white
+        transition-all duration-500">
         {/* Global Navbar */}
         <Navbar />
 
         {/* Padding so navbar does not overlap */}
-        <main className="pt-24">
+        <main className="pt-21">
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/login" element={<Login />} />

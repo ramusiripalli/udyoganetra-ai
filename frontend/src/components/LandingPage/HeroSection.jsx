@@ -4,13 +4,8 @@ import { motion } from "framer-motion";
 const HeroSection = () => {
   return (
     <section className="relative px-6 sm:px-8 py-20 md:py-28 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-14 overflow-hidden">
-
-      {/* Background Glow */}
-      <div className="absolute top-10 left-10 w-40 h-40 bg-cyan-400/20 blur-3xl rounded-full"></div>
-      <div className="absolute bottom-10 right-10 w-56 h-56 bg-purple-500/20 blur-3xl rounded-full"></div>
-
       {/* Left Content */}
-      <motion.div
+      <motion.div 
         className="w-full md:w-1/2 relative z-10"
         initial={{ x: -80, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
@@ -24,12 +19,12 @@ const HeroSection = () => {
 
           Find Your Dream Job With
 
-          <span className="block bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 text-transparent bg-clip-text mt-2">
+          <span className="block bg-gradient-to-r from-purple-600 via-fuchsia-500 to-pink-600 text-transparent bg-clip-text mt-2">
             Intelligent AI Guidance
           </span>
         </h1>
 
-        <p className="mt-6 text-gray-600 dark:text-gray-400 text-base sm:text-lg leading-relaxed max-w-xl">
+        <p className="mt-6 text-gray-900 dark:text-gray-200 text-base sm:text-lg leading-relaxed max-w-xl">
           UdyogaNetra helps job seekers discover personalized opportunities,
           analyze resumes, identify skill gaps, prepare for interviews,
           and accelerate career growth using Artificial Intelligence.
@@ -39,7 +34,7 @@ const HeroSection = () => {
 
           <Link
             to="/register"
-            className="px-7 py-3 rounded-full font-semibold bg-gradient-to-r from-cyan-400 to-blue-500 text-black shadow-lg hover:scale-105 transition duration-300"
+            className="px-7 py-3 rounded-full font-semibold bg-gradient-to-r from-purple-600 to-pink-500 text-white shadow-lg hover:scale-105 transition duration-300"
           >
             Get Started
           </Link>
@@ -61,9 +56,9 @@ const HeroSection = () => {
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 1.2 }}
       >
-        <div className="rounded-2xl p-8 bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700 shadow-2xl backdrop-blur-xl">
+        <div className="rounded-2xl p-8 bg-white dark:bg-black/90 border border-pink-600 dark:border-pink-600 shadow-2xl backdrop-blur-xl">
 
-          <h3 className="text-2xl font-bold text-cyan-500 mb-6">
+          <h3 className="text-2xl font-bold text-purple-600 mb-6">
             AI Career Analysis
           </h3>
 
@@ -103,8 +98,8 @@ const HeroSection = () => {
 
           </div>
 
-          <div className="mt-8 p-3 rounded-xl bg-cyan-500/10 border border-cyan-500/20">
-            <p className="text-sm text-cyan-500 text-center">
+          <div className="mt-8 p-3 rounded-xl bg-white dark:bg-black border border-pink-500/50">
+            <p className="text-md text-pink-600  dark:text-white text-center">
               AI is analyzing your career growth opportunities...
             </p>
           </div>

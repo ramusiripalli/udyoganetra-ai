@@ -2,26 +2,26 @@ import { motion } from "framer-motion";
 
 const problems = [
   {
-    title: "Jobs Are Scattered",
-    desc: "Candidates waste time switching across multiple job platforms searching for opportunities."
+    title: "Jobs Are Scattered Across Platforms",
+    desc: "Candidates waste time switching between multiple job portals, company career pages, and platforms instead of discovering all opportunities in one place."
   },
   {
     title: "No Personalized Guidance",
-    desc: "Most platforms show jobs but do not help users understand what fits their skills."
+    desc: "Most job platforms only list openings but do not help candidates understand which roles truly match their skills and career goals."
   },
   {
     title: "Poor Resume Quality",
-    desc: "Many candidates fail ATS screening because resumes are not optimized correctly."
+    desc: "Many candidates fail ATS screening because resumes are not optimized according to industry standards and recruiter expectations."
   },
   {
     title: "Lack of Interview Preparation",
-    desc: "Job seekers often do not know what questions to prepare before interviews."
+    desc: "Job seekers often struggle in interviews because they do not know what technical or HR questions to prepare beforehand."
   }
 ];
 
 const WhyUdyogaNetra = () => {
   return (
-    <section className="py-20 px-6 sm:px-8 bg-gray-50 dark:bg-slate-950">
+    <section className="py-20 px-6 sm:px-8 bg-gray-50 dark:bg-slate-950/80">
 
       <motion.div
         className="max-w-7xl mx-auto text-center"
@@ -32,12 +32,11 @@ const WhyUdyogaNetra = () => {
       >
 
         <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
-          Why <span className="text-cyan-500">UdyogaNetra</span> ?
+          Why <span className="bg-linear-to-r from-purple-600  to-pink-600 text-transparent bg-clip-text">UdyogaNetra</span> ?
         </h2>
 
-        <p className="mt-4 text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-          Traditional job platforms help users search jobs.  
-          UdyogaNetra goes beyond search by helping users grow their careers using AI.
+        <p className="mt-4 text-gray-600 dark:text-gray-200 max-w-3xl mx-auto">
+          Getting a job is not just about applying. UdyogaNetra uses <span className="text-pink-600">AI</span> to help candidates discover opportunities, build better resumes, prepare for interviews, and grow their careers.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-14">
@@ -45,14 +44,14 @@ const WhyUdyogaNetra = () => {
           {problems.map((item, index) => (
             <motion.div
               key={index}
-              className="p-7 rounded-2xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 shadow-lg hover:-translate-y-2 transition duration-300"
+              className="p-7 rounded-2xl bg-white dark:bg-black border border-gray-200 dark:border-purple-500/30 shadow-lg hover:-translate-y-2 transition duration-300"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.15 }}
               viewport={{ once: true }}
             >
 
-              <div className="w-12 h-12 rounded-full bg-gradient-to-r from-cyan-400 to-purple-500 flex items-center justify-center text-black font-bold text-xl mb-4 mx-auto">
+              <div className="w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center text-black dark:text-white font-bold text-xl mb-4 mx-auto">
                 {index + 1}
               </div>
 
