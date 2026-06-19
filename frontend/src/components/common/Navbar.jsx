@@ -13,22 +13,20 @@ const Navbar = () => {
       initial={{ y: -60, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className="
-        fixed top-0 left-0 w-full z-50
-        backdrop-blur-xl
-        bg-white/70 dark:bg-slate-950/70
-        border-b border-gray-200 dark:border-slate-800
-      "
-    >
+      className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl bg-white/70 dark:bg-blue-900/20
+        border-b border-gray-200 dark:border-slate-600">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
         {/* Logo */}
         <Link to="/" className="text-3xl font-bold tracking-tight">
-          <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 text-transparent bg-clip-text">
+          <span className="bg-gradient-to-r from-purple-600 via-fuchsia-500 to-pink-600 text-transparent bg-clip-text">
             Udyoga
           </span>
           <span className="text-gray-900 dark:text-white">
             Netra
+          </span>
+          <span className="text-pink-600">
+            &nbsp; AI
           </span>
         </Link>
 
@@ -37,7 +35,7 @@ const Navbar = () => {
 
           <Link
             to="/"
-            className="text-gray-700 dark:text-gray-200 hover:text-cyan-400 transition
+            className="text-black dark:text-gray-200 hover:text-cyan-400 transition
             relative after:absolute after:w-0 after:h-0.5 after:bg-cyan-400 after:left-0 after:-bottom-1 hover:after:w-full after:transition-all"
           >
             Home
@@ -45,7 +43,7 @@ const Navbar = () => {
 
           <Link
             to="/jobs"
-            className="text-gray-700 dark:text-gray-200 hover:text-cyan-400 transition
+            className="text-black dark:text-gray-200 hover:text-cyan-400 transition
             relative after:absolute after:w-0 after:h-0.5 after:bg-cyan-400 after:left-0 after:-bottom-1 hover:after:w-full after:transition-all"
           >
             Jobs
@@ -53,7 +51,7 @@ const Navbar = () => {
 
           <Link
             to="/ai-tools"
-            className="text-gray-700 dark:text-gray-200 hover:text-cyan-400 transition
+            className="text-black dark:text-gray-200 hover:text-cyan-400 transition
             relative after:absolute after:w-0 after:h-0.5 after:bg-cyan-400 after:left-0 after:-bottom-1 hover:after:w-full after:transition-all"
           >
             AI Tools
@@ -70,18 +68,18 @@ const Navbar = () => {
               w-11 h-11 rounded-full
               flex items-center justify-center
               border border-gray-300 dark:border-slate-700
-              bg-white dark:bg-slate-900
-              hover:scale-105 transition-all cursor-pointer
+              bg-white dark:bg-blue-900/40
+              hover:scale-125 transition-all cursor-pointer
             "
           >
             {theme === "dark" ? (
               <Sun
-                size={20}
+                size={30}
                 className="text-yellow-400 transition-transform hover:rotate-180 duration-300"
               />
             ) : (
               <Moon
-                size={20}
+                size={30}
                 className="text-slate-700 transition-transform hover:-rotate-12 duration-300"
               />
             )}
@@ -106,9 +104,9 @@ const Navbar = () => {
             className="
               hidden md:block
               px-5 py-2.5 rounded-xl
-              bg-gradient-to-r from-cyan-500 to-blue-600
+              bg-gradient-to-r from-purple-600  to-pink-600
               text-white font-medium
-              hover:scale-105 transition-all cursor-pointer
+              hover:scale-110 transition-all cursor-pointer
               shadow-lg
             "
           >
@@ -158,7 +156,7 @@ const Navbar = () => {
             <button
               className="
                 py-2 rounded-lg
-                bg-blue-600 text-white
+                bg-gradient-to-r from-purple-600  to-pink-600 text-white
               "
             >
               Get Started
