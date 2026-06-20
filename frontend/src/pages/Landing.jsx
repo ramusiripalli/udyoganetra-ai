@@ -9,6 +9,7 @@ const Landing = () => {
     <div className="min-h-screen bg-white dark:bg-black text-slate-900 dark:text-white transition-colors duration-300
       overflow-hidden">
        <HeroSection />
+
        <WhyUdyogaNetra />
         <ShowcaseSection/>
        <HowItWorks/>
