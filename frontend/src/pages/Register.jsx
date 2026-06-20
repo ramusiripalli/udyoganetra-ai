@@ -1,228 +1,152 @@
-import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Toaster, toast } from "react-hot-toast";
-import { motion } from "framer-motion";
+// src/pages/Register.jsx
 
-import { useDispatch, useSelector } from "react-redux";
-import { registerUser } from "../features/auth/authSlice";
+import  { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { Toaster, toast } from 'react-hot-toast';
+import { motion } from 'framer-motion';
 
 const Register = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-
-  // redux state
-  const { userInfo, loading, error } = useSelector(
-    (state) => state.auth
-  );
-
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
   });
 
   const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] =
-    useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-  // success → redirect
-  useEffect(() => {
-    if (userInfo) {
-      toast.success("Account created successfully 🚀");
-
-      setTimeout(() => {
-        navigate("/");
-      }, 1000);
-    }
-  }, [userInfo, navigate]);
-
-  // error handling
-  useEffect(() => {
-    if (error) {
-      toast.error(error);
-    }
-  }, [error]);
-
-  // reusable styles
-  const inputStyle =
-    "w-full px-4 py-3 bg-white/70 dark:bg-slate-800/60 border border-slate-300 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-gray-500 outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all";
-
-  const eyeIconStyle =
-    "absolute right-4 top-4 text-slate-500 dark:text-gray-400 hover:text-cyan-400 cursor-pointer transition";
-
-  // input change
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // submit
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const { name, email, password, confirmPassword } = formData;
 
-    const { name, email, password, confirmPassword } =
-      formData;
-
-    // validation
     if (!name || !email || !password || !confirmPassword) {
-      return toast.error("Please fill all fields");
+      return toast.error('Please fill all fields!');
     }
 
     if (password !== confirmPassword) {
-      return toast.error("Passwords do not match");
+      return toast.error('Passwords do not match!');
     }
 
-    // send only required fields to backend
-    dispatch(
-      registerUser({
-        name,
-        email,
-        password,
-      })
-    );
+    try {
+      const res = await fetch(
+        `${import.meta.env.VITE_API_BASE_URL}/api/auth/register`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, password })
+        }
+      );
+
+      const data = await res.json();
+
+      if (res.ok) {
+        toast.success('Registered successfully!');
+        navigate('/login');
+      } else {
+        toast.error(data.message || 'Registration failed!');
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error('Something went wrong!');
+    }
   };
 
   return (
-    <div
-      className="
-      min-h-screen
-      bg-gradient-to-br
-      from-[#FFD8A8]
-      via-[#F8FAFC]
-      to-[#C7F9CC]
-      dark:from-[#020617]
-      dark:via-[#0B1120]
-      dark:to-[#111827]
+    <div className="min-h-screen bg-white dark:bg-black flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
 
-      flex
-      justify-center
-      items-start md:items-center
+      {/* ✅ Toast Notifications */}
+      <Toaster position="top-center"
+        toastOptions={{
+          style: {
+            fontSize: '18px',
+            padding: '12px 20px',
+            minWidth: '300px',
+          },
+        }}
+      />
 
-      px-4
-      py-24 md:py-0
 
-      relative
-      overflow-x-hidden
-    "
-    >
-      {/* Toast */}
-      <Toaster position="top-right" />
-
-      {/* Background blur */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-orange-300/30 dark:bg-cyan-500/20 rounded-full blur-[120px]" />
-
-      <div className="absolute bottom-10 right-10 w-80 h-80 bg-green-300/30 dark:bg-purple-500/20 rounded-full blur-[140px]" />
-
-      {/* Card */}
+      {/* ✅ Registration Form */}
       <motion.div
-        initial={{ y: -50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.9 }}
-        className="relative w-full max-w-md mt-5 mb-10 p-6 md:p-8 rounded-3xl bg-white/80 dark:bg-slate-900/60 backdrop-blur-xl border border-slate-200 dark:border-cyan-500/20 shadow-xl shadow-cyan-500 transition-all"
+        initial={{ y: 50, opacity: 0, scale: 0.95 }}
+        animate={{ y: 0, opacity: 1, scale: 1 }}
+        transition={{ type: 'spring', stiffness: 80, damping: 12 }}
+        className="w-full max-w-sm sm:max-w-md bg-slate-50 dark:bg-black rounded-2xl shadow-lg shadow-pink-400/40 border-2 border-pink-600/60 p-6 sm:p-8 mt-20 mb-10"
       >
-        <div className="absolute -top-2 -right-2 w-4 h-4 bg-cyan-400 rounded-full animate-pulse" />
-
-        {/* Heading */}
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-900 dark:text-white mb-2 leading-tight">
-          Create your <br className="md:hidden" />
-
-          <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 text-transparent bg-clip-text">
-            UdyogaNetra
-          </span>
+        <h2 className="text-2xl sm:text-3xl font-bold text-white text-center mb-4 sm:mb-6">
+          <span className="text-black dark:text-white">Create your </span> <span className="text-pink-700 dark:text-purple-500">UdyogaNetra</span> <span className='text-black dark:text-white'>Account </span>
         </h2>
 
-        <p className="text-center text-slate-500 dark:text-gray-400 mb-8">
-          Begin your intelligent career journey
-        </p>
-
-        {/* Form */}
-        <form onSubmit={handleSubmit} className="space-y-5">
-          {/* Name */}
-          <input
+        <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+          <motion.input
+            whileFocus={{ scale: 1.02 }}
             type="text"
             name="name"
             placeholder="Full Name"
+            className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-transparent border border-pink-700/70 rounded-lg text-black dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 transition"
             onChange={handleChange}
-            className={inputStyle}
           />
 
-          {/* Email */}
-          <input
+          <motion.input
+            whileFocus={{ scale: 1.02 }}
             type="email"
             name="email"
-            placeholder="Email Address"
+            placeholder="Email"
+            className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-transparent border border-pink-700/70 rounded-lg text-black dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 transition"
             onChange={handleChange}
-            className={inputStyle}
           />
 
-          {/* Password */}
           <div className="relative">
             <input
-              type={showPassword ? "text" : "password"}
+              type={showPassword ? 'text' : 'password'}
               name="password"
               placeholder="Password"
+              className="w-full px-3 py-2 sm:px-4 sm:py-3 pr-9 sm:pr-10 bg-transparent border border-pink-700/70 rounded-lg text-black dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 transition"
               onChange={handleChange}
-              className={inputStyle}
             />
-
             <span
               onClick={() => setShowPassword(!showPassword)}
-              className={eyeIconStyle}
+              className="absolute right-2 sm:right-3 top-2.5 sm:top-3 text-lg sm:text-xl text-white cursor-pointer"
             >
               {showPassword ? <FaEyeSlash /> : <FaEye />}
             </span>
           </div>
 
-          {/* Confirm Password */}
           <div className="relative">
             <input
-              type={
-                showConfirmPassword ? "text" : "password"
-              }
+              type={showConfirmPassword ? 'text' : 'password'}
               name="confirmPassword"
               placeholder="Confirm Password"
+              className="w-full px-3 py-2 sm:px-4 sm:py-3 pr-9 sm:pr-10 bg-transparent border border-pink-500/70 rounded-lg text-black dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 transition"
               onChange={handleChange}
-              className={inputStyle}
             />
-
             <span
-              onClick={() =>
-                setShowConfirmPassword(
-                  !showConfirmPassword
-                )
-              }
-              className={eyeIconStyle}
+              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+              className="absolute right-2 sm:right-3 top-2.5 sm:top-3 text-lg sm:text-xl text-white cursor-pointer"
             >
-              {showConfirmPassword ? (
-                <FaEyeSlash />
-              ) : (
-                <FaEye />
-              )}
+              {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
             </span>
           </div>
 
-          {/* Button */}
           <motion.button
-            whileHover={{ scale: 1.02 }}
+            whileHover={{ scale: 1.03 }}
             type="submit"
-            disabled={loading}
-            className="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-600 text-white font-semibold text-lg transition-all shadow-xl shadow-blue-300/30 dark:shadow-blue-500/20"
+            className="w-full bg-linear-to-r from-purple-600 to-pink-700 text-white py-2 sm:py-3 rounded-lg font-semibold hover:shadow-pink-500 transition-all duration-300 shadow-md text-base sm:text-lg"
           >
-            {loading ? "Creating..." : "Create Account"}
+            Sign UP
           </motion.button>
         </form>
 
-        {/* Footer */}
-        <p className="text-center text-slate-600 dark:text-gray-400 mt-6">
-          Already have an account?{" "}
-          <Link
-            to="/login"
-            className="text-cyan-500 hover:text-blue-500 transition"
-          >
+        <p className="text-center text-black dark:text-gray-200 mt-4 sm:mt-5 text-sm sm:text-base">
+          Already have an account?{' '}
+          <Link to="/login" className="text-pink-600 dark:text-purple-400 text-xl  hover:underline">
             Login here
           </Link>
         </p>

@@ -91,8 +91,8 @@ const Navbar = () => {
             className="
               hidden md:block
               text-gray-700 dark:text-gray-200
-              hover:text-cyan-400 transition
-              relative after:absolute after:w-0 after:h-0.5 after:bg-cyan-400 after:left-0 after:-bottom-1 hover:after:w-full after:transition-all
+              hover:text-pink-500 transition
+              relative after:absolute after:w-0 after:h-0.5 after:bg-pink-400 after:left-0 after:-bottom-1 hover:after:w-full after:transition-all
             "
           >
             Login

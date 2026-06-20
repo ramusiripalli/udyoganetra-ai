@@ -1,178 +1,141 @@
-import { useState, useEffect } from "react";
+// src/pages/Login.jsx
+
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Toaster, toast } from "react-hot-toast";
-import { motion } from "framer-motion";
+import { useDispatch } from "react-redux";
+import { loginSuccess } from "../redux/authSlice.js";
 
-import { useDispatch, useSelector } from "react-redux";
-import { loginUser } from "../features/auth/authSlice";
-
+ 
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  // getting redux state
-  const { userInfo, loading, error } = useSelector(
-    (state) => state.auth
-  );
-
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
-
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  // if login success → redirect
-  useEffect(() => {
-    if (userInfo) {
-      toast.success("Login successful 🚀");
-
-      setTimeout(() => {
-        navigate("/");
-      }, 1000);
-    }
-  }, [userInfo, navigate]);
-
-  // if login error → show toast
-  useEffect(() => {
-    if (error) {
-      toast.error(error);
-    }
-  }, [error]);
-
-  // reusable styles
-  const inputStyle =
-    "w-full px-4 py-3 bg-white/70 dark:bg-slate-800/60 border border-slate-300 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-gray-500 outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all";
-
-  const eyeIconStyle =
-    "absolute right-4 top-4 text-slate-500 dark:text-gray-400 hover:text-cyan-400 cursor-pointer transition";
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  // submit
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const { email, password } = formData;
-
-    // validation
-    if (!email || !password) {
-      return toast.error("Please fill all fields");
+    if (!email.trim() || !password) {
+      toast.error("Please fill in both email and password!");
+      return;
     }
 
-    // dispatch redux thunk
-    dispatch(loginUser(formData));
+    setLoading(true);
+    try {
+      const res = await fetch(
+        `${import.meta.env.VITE_API_BASE_URL}/api/auth/login`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password }),
+        }
+      );
+      const data = await res.json();
+
+      if (!res.ok) {
+        const errMsg = data.msg || data.message || "Login failed";
+        toast.error(errMsg);
+      } else {
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("user", JSON.stringify(data.user));
+        dispatch(loginSuccess({ user: data.user, token: data.token }));
+        toast.success("Logged in successfully 🎉");
+
+        if (data.user.role === "admin") {
+          navigate("/admin/dashboard");
+        } else {
+          navigate("/dashboard");
+        }
+      }
+    } catch (err) {
+      console.error("Login error:", err);
+      toast.error("Something went wrong");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <div
-      className="
-      min-h-screen
-      bg-gradient-to-br
-      from-[#FFD8A8]
-      via-[#F8FAFC]
-      to-[#C7F9CC]
-      dark:from-[#020617]
-      dark:via-[#0B1120]
-      dark:to-[#111827]
+    <div className="min-h-screen bg-white dark:bg-black flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
 
-      flex
-      justify-center
-      items-start md:items-center
+      {/* 🌟 Toaster for Notifications */}
+      <Toaster
+        position="top-center"
+        toastOptions={{
+          style: {
+            fontSize: "18px",
+            padding: "12px 20px",
+            minWidth: "280px",
+          },
+        }}
+      />
 
-      px-4
-      py-24 md:py-0
 
-      relative
-      overflow-x-hidden
-    "
-    >
-      <Toaster position="top-right" />
-
-      {/* Background blur */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-orange-300/30 dark:bg-cyan-500/20 rounded-full blur-[120px]" />
-
-      <div className="absolute bottom-10 right-10 w-80 h-80 bg-green-300/30 dark:bg-purple-500/20 rounded-full blur-[140px]" />
-
-      {/* Card */}
-      <motion.div
-        initial={{ y: -50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.9 }}
-        className="relative w-full max-w-md p-6 md:p-8 rounded-3xl bg-white/80 dark:bg-slate-900/60 backdrop-blur-2xl border border-slate-200 dark:border-cyan-500/20 shadow-xl shadow-cyan-900 transition-all"
-      >
-        <div className="absolute -top-2 -right-2 w-4 h-4 bg-cyan-400 rounded-full animate-pulse" />
-
-        {/* Heading */}
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-900 dark:text-white mb-2 leading-tight">
-          Welcome Back <br className="md:hidden" />
-
-          <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 text-transparent bg-clip-text">
-            UdyogaNetra
-          </span>
+      {/* 🧾 Login Form Card */}
+      <div className="w-full max-w-sm sm:max-w-md bg-white dark:bg-black border-2 border-pink-600 rounded-2xl p-6 sm:p-8 shadow-lg shadow-pink-400/80 mt-20 sm:mt-15 mb-15">
+        <h2 className="text-2xl sm:text-3xl font-bold text-center text-black dark:text-white mb-4 sm:mb-6">
+          Login to <span className="text-pink-600">Udyoganetra AI</span>
         </h2>
 
-        <p className="text-center text-slate-500 dark:text-gray-400 mb-8">
-          Continue your intelligent career journey
-        </p>
+        <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+          {/* Email Input */}
+          <div>
+            <label className="block mb-1 text-sm sm:text-base text-black dark:text-gray-300">
+              Email
+            </label>
+            <input
+              type="email"
+              required
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-transparent border border-pink-500/70 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 transition"
+            />
+          </div>
 
-        {/* Form */}
-        <form onSubmit={handleSubmit} className="space-y-5">
-          {/* Email */}
-          <input
-            type="email"
-            name="email"
-            placeholder="Email Address"
-            onChange={handleChange}
-            className={inputStyle}
-          />
-
-          {/* Password */}
+          {/* Password Input */}
           <div className="relative">
+            <label className="block mb-1 text-sm sm:text-base text-black dark:text-gray-300">
+              Password
+            </label>
             <input
               type={showPassword ? "text" : "password"}
-              name="password"
-              placeholder="Password"
-              onChange={handleChange}
-              className={inputStyle}
+              required
+              placeholder="Enter your password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full px-3 py-2 sm:px-4 sm:py-3 pr-10 bg-transparent border border-pink-500/70 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 transition"
             />
-
             <span
-              onClick={() => setShowPassword(!showPassword)}
-              className={eyeIconStyle}
+              onClick={() => setShowPassword((prev) => !prev)}
+              className="absolute inset-y-0 right-3 top-6 flex items-center   text-black dark:text-white cursor-pointer text-lg sm:text-2xl"
             >
               {showPassword ? <FaEyeSlash /> : <FaEye />}
             </span>
           </div>
 
-          {/* Button */}
-          <motion.button
-            whileHover={{ scale: 1.02 }}
+          {/* Submit Button */}
+          <button
             type="submit"
             disabled={loading}
-            className="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-600 text-white font-semibold text-lg transition-all shadow-xl shadow-blue-300/30 dark:shadow-blue-500/20"
+            className="w-full bg-linear-to-r from-purple-600 to-pink-600 text-white py-2 sm:py-3 rounded-lg font-semibold hover:shadow-[#ff00c3] transition-all duration-200 shadow-md text-sm sm:text-base"
           >
             {loading ? "Logging in..." : "Login"}
-          </motion.button>
+          </button>
         </form>
 
-        {/* Footer */}
-        <p className="text-center text-slate-600 dark:text-gray-400 mt-6">
-          New to UdyogaNetra?{" "}
-          <Link
-            to="/register"
-            className="text-cyan-500 hover:text-blue-500 transition"
-          >
-            Create account
+        <p className="text-center text-black dark:text-gray-100 mt-4 sm:mt-5 text-sm sm:text-base">
+          Don’t have an account?{"  "}
+          <Link to="/register" className="text-green-600 dark:text-green-400 hover:underline">
+            Register here
           </Link>
         </p>
-      </motion.div>
+      </div>
     </div>
   );
 };
