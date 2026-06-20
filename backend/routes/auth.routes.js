@@ -6,7 +6,7 @@ import {
   getUserProfile
 } from "../controllers/auth.controller.js";
 
-import { protect } from "../middleware/auth.middleware.js";
+import { verifyToken } from "../middleware/auth.middleware.js";
 
 const router = express.Router();
 
@@ -18,6 +18,6 @@ router.post("/register", registerUser);
 // login
 router.post("/login", loginUser);
 
-router.get("/profile", protect, getUserProfile);
+router.get("/profile", verifyToken, getUserProfile);
 
 export default router;
