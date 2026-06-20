@@ -1,43 +1,57 @@
 import User from "../models/User.js";
-import generateToken from "../utils/generateToken.js";
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 
 // REGISTER
 export const registerUser = async (req, res) => {
   try {
     const { name, email, password } = req.body;
-     if (!name || !email || !password) {
+
+    // 1) Check required fields
+    if (!name || !email || !password) {
       return res
         .status(400)
         .json({ msg: "Name, email, and password are required." });
     }
-    // check existing user
+
+    // 2) See if user already exists
     const userExists = await User.findOne({ email });
     if (userExists) {
-      return res.status(400).json({
-        message: "User already exists"
-      });
+      return res.status(400).json({ msg: "User already exists" });
     }
-    // create user
-    const user = await User.create({
+
+    // 3) Create user – do NOT hash here; the pre("save") hook on userSchema will do it
+    const newUser = new User({
       name,
       email,
-      password,
-      role:"user"
+      password,   // <— store the raw password, Mongoose middleware will hash it
+      role: "user",
+    });
+    await newUser.save();
+
+    // 4) Sign JWT with payload { id, role }
+    const payload = { id: newUser._id, role: newUser.role };
+    const token = jwt.sign(payload, process.env.JWT_SECRET, {
+      expiresIn: "7d",
     });
 
-    if (user) {
-      res.status(201).json({
-        _id: user._id,
-        name: user.name,
-        email: user.email,
-        token: generateToken(user._id)
-      });
-    }
-  } catch (error) {
-    res.status(500).json({
-      message: error.message
+    // 5) Return token + user info (excluding password)
+    return res.status(201).json({
+      token,
+      user: {
+        id: newUser._id,
+        name: newUser.name,
+        email: newUser.email,
+        role: newUser.role,
+      },
     });
+  } catch (err) {
+    console.error("Register error:", err);
+    return res.status(500).json({ msg: "Server error" });
   }
 };
 
@@ -45,38 +59,45 @@ export const registerUser = async (req, res) => {
 
 // LOGIN
 export const loginUser = async (req, res) => {
-
-  try {
-
+ try {
     const { email, password } = req.body;
 
-    const user = await User.findOne({ email });
-
-
-    if (user && (await user.matchPassword(password))) {
-
-      res.status(200).json({
-        _id: user._id,
-        name: user.name,
-        email: user.email,
-
-        token: generateToken(user._id)
-      });
-
-    } else {
-
-      res.status(401).json({
-        message: "Invalid credentials"
-      });
-
+    // 1) Validate request
+    if (!email || !password) {
+      return res.status(400).json({ msg: "Email and password are required." });
     }
 
-  } catch (error) {
+    // 2) Find user by email
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(400).json({ msg: "Invalid credentials" });
+    }
 
-    res.status(500).json({
-      message: error.message
+    // 3) Compare plaintext password to hashed password in DB
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res.status(400).json({ msg: "Invalid credentials" });
+    }
+
+    // 4) Sign JWT with payload { id, role }
+    const payload = { id: user._id, role: user.role };
+    const token = jwt.sign(payload, process.env.JWT_SECRET, {
+      expiresIn: "7d",
     });
 
+    // 5) Return token + user info (excluding password)
+    return res.status(200).json({
+      token,
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+      },
+    });
+  } catch (err) {
+    console.error("Login error:", err);
+    return res.status(500).json({ msg: "Internal server error" });
   }
 
 };
