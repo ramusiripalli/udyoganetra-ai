@@ -94,7 +94,7 @@ const Login = () => {
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-transparent border border-pink-500/70 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 transition"
+              className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-transparent border border-pink-500/70 rounded-lg text-black dark:text-white  placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 transition"
             />
           </div>
 
@@ -109,7 +109,7 @@ const Login = () => {
               placeholder="Enter your password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-3 py-2 sm:px-4 sm:py-3 pr-10 bg-transparent border border-pink-500/70 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 transition"
+              className="w-full px-3 py-2 sm:px-4 sm:py-3 pr-10 bg-transparent border border-pink-500/70 rounded-lg text-black dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 transition"
             />
             <span
               onClick={() => setShowPassword((prev) => !prev)}
