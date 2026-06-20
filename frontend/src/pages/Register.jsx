@@ -78,7 +78,7 @@ const Register = () => {
         initial={{ y: 50, opacity: 0, scale: 0.95 }}
         animate={{ y: 0, opacity: 1, scale: 1 }}
         transition={{ type: 'spring', stiffness: 80, damping: 12 }}
-        className="w-full max-w-sm sm:max-w-md bg-slate-50 dark:bg-black rounded-2xl shadow-lg shadow-pink-400/40 border-2 border-pink-600/60 p-6 sm:p-8 mt-20 mb-10"
+        className="w-full max-w-sm sm:max-w-md bg-slate-50 dark:bg-black rounded-2xl shadow-lg shadow-pink-400/40 border-2 border-pink-600 p-6 sm:p-8 mt-15 mb-15"
       >
         <h2 className="text-2xl sm:text-3xl font-bold text-white text-center mb-4 sm:mb-6">
           <span className="text-black dark:text-white">Create your </span> <span className="text-pink-700 dark:text-purple-500">UdyogaNetra</span> <span className='text-black dark:text-white'>Account </span>

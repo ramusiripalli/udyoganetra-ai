@@ -12,33 +12,68 @@ import Landing from "./pages/Landing";
 import AIFeatures from "./pages/AIFeatures";
 import Footer from "./components/common/Footer";
 
+// import Protected Route
+import ProtectedRoute from "./routes/ProtectedRoute";
+
 function App() {
   return (
-     
     <BrowserRouter>
-      {/* Main Theme Wrapper */}
-     
       <div
         className="min-h-screen bg-white dark:bg-[#0b0c19] text-black dark:text-white
-        transition-all duration-500">
+        transition-all duration-500"
+      >
         {/* Global Navbar */}
         <Navbar />
 
-        {/* Padding so navbar does not overlap */}
         <main className="pt-21">
           <Routes>
+            {/* Public Routes */}
             <Route path="/" element={<Landing />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/ai-features" element={<AIFeatures />} />
             <Route path="/jobs" element={<Jobs />} />
-            <Route path="/resume-analyzer" element={<ResumeAnalyzer />} />
-            <Route path="/interview-prep" element={<InterviewPrep />} />
-            <Route path="/job-match" element={<JobMatch />} />
+
+            {/* Protected Routes */}
+            <Route
+              path="/dashboard"
+              element={
+                <ProtectedRoute>
+                  <Dashboard />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/resume-analyzer"
+              element={
+                <ProtectedRoute>
+                  <ResumeAnalyzer />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/interview-prep"
+              element={
+                <ProtectedRoute>
+                  <InterviewPrep />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/job-match"
+              element={
+                <ProtectedRoute>
+                  <JobMatch />
+                </ProtectedRoute>
+              }
+            />
           </Routes>
         </main>
-         <Footer/>
+
+        <Footer />
       </div>
     </BrowserRouter>
   );
