@@ -7,6 +7,7 @@ import resumeRoutes from "./routes/resume.routes.js";
 import roadmapRoutes from "./routes/roadmap.routes.js";
 import interviewRoutes from "./routes/interview.routes.js";
 import jobMatchRoutes from "./routes/jobmatch.routes.js";
+import skillGapRoutes from "./routes/skillgap.routes.js";
 
 dotenv.config();
 
@@ -25,6 +26,7 @@ app.use("/api/resume", resumeRoutes);
 app.use("/api/roadmap", roadmapRoutes);
 app.use('/api/interview',interviewRoutes);
 app.use("/api/jobmatch", jobMatchRoutes);
+app.use("/api/skillgap", skillGapRoutes);
 
 // test route
 app.get("/", (req, res) => {
