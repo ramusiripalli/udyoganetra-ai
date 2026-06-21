@@ -12,15 +12,21 @@ import {
   FaRoad,
   FaClipboardList,
   FaSignOutAlt,
+  FaTimes,
 } from "react-icons/fa";
 
 const DashboardSidebar = ({ isOpen, setIsOpen }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const { user } = useSelector((state) => state.auth);
 
   const handleLogout = () => {
     dispatch(logout());
+
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+
     navigate("/login");
   };
 
@@ -36,56 +42,118 @@ const DashboardSidebar = ({ isOpen, setIsOpen }) => {
 
   return (
     <>
-      {/* mobile overlay */}
+      {/* Mobile Overlay */}
       {isOpen && (
         <div
           onClick={() => setIsOpen(false)}
-          className="fixed inset-0 bg-black/40 z-40 lg:hidden"
+          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
         />
       )}
 
-      <motion.div
+      <motion.aside
+        initial={{ x: -50, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
         className={`
         fixed lg:static top-0 left-0 z-50
-        w-64 min-h-screen
+        w-72 min-h-screen
         transform transition-transform duration-300
         ${isOpen ? "translate-x-0" : "-translate-x-full"}
         lg:translate-x-0
-        
-        bg-white dark:bg-slate-900
+
+        bg-gradient-to-b
+        from-white via-gray-50 to-gray-100
+        dark:from-black dark:via-blue-900/10 dark:to-black
+
         border-r border-slate-200 dark:border-slate-700
-        flex flex-col justify-between px-5 py-8
+        flex flex-col justify-between
+        px-6 py-8
+        shadow-xl
       `}
       >
+        {/* TOP SECTION */}
         <div>
-          <h1 className="text-2xl md:text-3xl font-bold mb-8 bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
+          {/* Mobile Close Button */}
+          <div className="flex items-center justify-between lg:hidden mb-6">
+            <h1 className="text-2xl font-bold bg-linear-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              UdyogaNetra
+            </h1>
+
+            <button onClick={() => setIsOpen(false)}>
+              <FaTimes className="text-xl" />
+            </button>
+          </div>
+
+          {/* Desktop Logo */}
+          <h1
+            className="
+            hidden lg:block
+            text-3xl font-bold mb-10
+            bg-gradient-to-r
+            from-purple-600 to-pink-600
+            bg-clip-text text-transparent
+          "
+          >
             UdyogaNetra AI
           </h1>
 
-          <div className="bg-slate-100 dark:bg-slate-800 rounded-2xl p-4 mb-8 border border-slate-200 dark:border-slate-700">
-            <p className="font-semibold text-lg text-slate-900 dark:text-white">
-              {user?.name}
+          {/* USER CARD */}
+          <motion.div
+            whileHover={{ scale: 1.02 }}
+            className="
+            rounded-2xl p-4 mb-3 bg-white dark:bg-black
+            border-3 border-pink-700
+            shadow-md
+          "
+          >
+            <p className="font-semibold text-lg text-black dark:text-white">
+              {user?.name || "User"}
             </p>
+
             <p className="text-sm mt-1 text-slate-500 dark:text-gray-400">
               AI Career Explorer
             </p>
-          </div>
+          </motion.div>
 
-          <div className="flex flex-col gap-3">
+          {/* MENU ITEMS */}
+          <div className="flex flex-col gap-2">
             {menuItems.map((item, index) => (
-              <motion.div key={index} whileHover={{ x: 5 }}>
+              <motion.div
+                key={index}
+                whileHover={{ x: 4 }}
+                whileTap={{ scale: 0.98 }}
+              >
                 <NavLink
                   to={item.path}
                   onClick={() => setIsOpen(false)}
                   className={({ isActive }) =>
                     isActive
-                      ? "flex items-center gap-4 p-3 rounded-xl bg-purple-100 dark:bg-slate-800"
-                      : "flex items-center gap-4 p-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800"
+                      ? `
+                        flex items-center gap-4
+                        p-4 rounded-xl
+
+                        bg-gradient-to-r
+                        from-purple-100 to-pink-100
+
+                        dark:from-slate-800
+                        dark:to-slate-800
+
+                        shadow-md
+                      `
+                      : `
+                        flex items-center gap-4
+                        p-4 rounded-xl
+                        hover:bg-slate-100
+                        dark:hover:bg-slate-700
+
+                        transition
+                      `
                   }
                 >
-                  <span className="text-purple-500">{item.icon}</span>
+                  <span className="text-pink-600 text-lg">
+                    {item.icon}
+                  </span>
 
-                  <span className="text-slate-700 dark:text-white">
+                  <span className="font-medium text-slate-700 dark:text-white">
                     {item.text}
                   </span>
                 </NavLink>
@@ -94,14 +162,27 @@ const DashboardSidebar = ({ isOpen, setIsOpen }) => {
           </div>
         </div>
 
-        <button
-          onClick={handleLogout}
-          className="w-full py-3 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 text-white flex items-center justify-center gap-3"
-        >
-          <FaSignOutAlt />
-          Logout
-        </button>
-      </motion.div>
+        {/* BOTTOM SECTION */}
+        <div>
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.97 }}
+            onClick={handleLogout}
+            className="
+            w-full py-3 rounded-xl mt-5 mb-5
+            bg-linear-to-r
+            from-red-600 to-yellow-600
+            text-white
+            font-semibold
+            flex items-center justify-center gap-3
+            shadow-lg
+          "
+          >
+            <FaSignOutAlt />
+            Logout
+          </motion.button>
+        </div>
+      </motion.aside>
     </>
   );
 };

@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { FaMoon, FaSun, FaBell, FaBars } from "react-icons/fa";
+import {
+  FaBell,
+  FaBars,
+} from "react-icons/fa";
+import { Sun, Moon } from "lucide-react";
 
 const DashboardNavbar = ({ setIsOpen }) => {
   const [theme, setTheme] = useState(
@@ -29,16 +33,20 @@ const DashboardNavbar = ({ setIsOpen }) => {
 
   return (
     <motion.div
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
       className="
-      px-4 md:px-8 py-4 md:py-5
+      px-4 md:px-8 py-4
       border-b border-slate-200 dark:border-slate-700
-      bg-white dark:bg-slate-900
+      bg-white dark:bg-black
+      backdrop-blur-lg
       flex items-center justify-between
-      shadow-sm
+      sticky top-0 z-30
     "
     >
+      {/* LEFT */}
       <div className="flex items-center gap-4">
-        {/* mobile menu */}
+
         <button
           onClick={() => setIsOpen(true)}
           className="lg:hidden text-xl"
@@ -47,30 +55,78 @@ const DashboardNavbar = ({ setIsOpen }) => {
         </button>
 
         <div>
-          <h2 className="text-lg md:text-2xl font-bold text-slate-900 dark:text-white">
+          <h2 className="text-lg md:text-2xl font-bold">
             {greeting} 👋
           </h2>
 
-          <p className="hidden sm:block text-sm mt-1 text-slate-500 dark:text-gray-400">
-            Your AI Career Copilot is ready today.
+          <p className="hidden md:block text-sm text-slate-500 dark:text-gray-400">
+            Ready to build your dream career?
           </p>
         </div>
       </div>
 
-      <div className="flex items-center gap-2 md:gap-4">
-        <button
-          onClick={toggleTheme}
-          className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center"
-        >
-          {theme === "dark" ? <FaSun /> : <FaMoon />}
-        </button>
+      {/* CENTER SEARCH */}
+      {/* <div className="hidden lg:flex items-center
+      bg-slate-100 dark:bg-slate-800
+      px-4 py-3 rounded-xl w-96">
 
-        <button className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+        <FaSearch className="text-gray-400" />
+
+        <input
+          type="text"
+          placeholder="Search jobs, companies..."
+          className="ml-3 bg-transparent outline-none w-full"
+        />
+      </div> */}
+
+      {/* RIGHT */}
+      <div className="flex items-center gap-3">
+
+       <button
+            onClick={toggleTheme}
+            className="
+              w-11 h-11 rounded-full
+              flex items-center justify-center
+              border border-gray-300 dark:border-slate-700
+              bg-white dark:bg-blue-900/40
+              hover:scale-125 transition-all cursor-pointer
+            "
+          >
+            {theme === "dark" ? (
+              <Sun
+                size={30}
+                className="text-yellow-400 transition-transform hover:rotate-180 duration-300"
+              />
+            ) : (
+              <Moon
+                size={30}
+                className="text-slate-700 transition-transform hover:-rotate-12 duration-300"
+              />
+            )}
+          </button>
+
+
+
+        
+
+        <button className="w-11 h-11 rounded-full
+        bg-slate-100 dark:bg-red-400
+        flex items-center justify-center">
           <FaBell />
         </button>
 
-        <div className="w-10 h-10 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white flex items-center justify-center">
-          🤖
+        <div
+          className="
+          hidden md:flex
+          w-11 h-11 rounded-full
+          bg-linear-to-r
+          from-purple-600 to-pink-600
+          text-white
+          items-center justify-center
+          font-bold
+        "
+        >
+          AI
         </div>
       </div>
     </motion.div>

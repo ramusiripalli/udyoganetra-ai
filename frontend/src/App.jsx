@@ -1,93 +1,128 @@
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 
 import Navbar from "./components/common/Navbar";
+import Footer from "./components/common/Footer";
+
+// Pages
+import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Dashboard from "./pages/Dashboard";
 import Jobs from "./pages/Jobs";
+import AIFeatures from "./pages/AIFeatures";
+
+import Dashboard from "./pages/Dashboard";
 import ResumeAnalyzer from "./pages/ResumeAnalyzer";
 import InterviewPrep from "./pages/InterviewPrep";
 import JobMatch from "./pages/JobMatch";
-import Landing from "./pages/Landing";
-import AIFeatures from "./pages/AIFeatures";
-import Footer from "./components/common/Footer";
 
 // Protected Route
 import ProtectedRoute from "./routes/ProtectedRoute";
 
+// NEW Dashboard Layout
+import DashboardLayout from "./components/dashboard/DashboardLayout";
 
-// Separate component because useLocation works inside BrowserRouter
 function AppContent() {
   const location = useLocation();
 
-  // Hide navbar/footer on dashboard related pages
+  // all dashboard related routes
+  const dashboardRoutes = [
+    "/dashboard",
+    "/resume-analyzer",
+    "/interview-prep",
+    "/job-match",
+  ];
+
   const hideLayout =
-    location.pathname === "/dashboard" ||
-    location.pathname === "/resume-analyzer" ||
-    location.pathname === "/interview-prep" ||
-    location.pathname === "/job-match";
+    dashboardRoutes.includes(location.pathname);
 
   return (
     <div
-      className="min-h-screen bg-white dark:bg-[#0b0c19] text-black dark:text-white transition-all duration-500"
+      className="
+      min-h-screen
+      bg-white
+      dark:bg-[#0b0c19]
+      text-black
+      dark:text-white
+      transition-all
+      duration-500
+    "
     >
-      {/* Hide Navbar on dashboard pages */}
+      {/* Public Navbar */}
       {!hideLayout && <Navbar />}
 
       <main className={hideLayout ? "" : "pt-21"}>
         <Routes>
-          {/* Public Routes */}
+
+          {/* PUBLIC ROUTES */}
+
           <Route path="/" element={<Landing />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/ai-features" element={<AIFeatures />} />
-          <Route path="/jobs" element={<Jobs />} />
 
-          {/* Protected Routes */}
           <Route
-            path="/dashboard"
-            element={
-              <ProtectedRoute>
-                <Dashboard />
-              </ProtectedRoute>
-            }
+            path="/login"
+            element={<Login />}
           />
 
           <Route
-            path="/resume-analyzer"
-            element={
-              <ProtectedRoute>
-                <ResumeAnalyzer />
-              </ProtectedRoute>
-            }
+            path="/register"
+            element={<Register />}
           />
 
           <Route
-            path="/interview-prep"
-            element={
-              <ProtectedRoute>
-                <InterviewPrep />
-              </ProtectedRoute>
-            }
+            path="/jobs"
+            element={<Jobs />}
           />
 
           <Route
-            path="/job-match"
+            path="/ai-features"
+            element={<AIFeatures />}
+          />
+
+
+          {/* DASHBOARD PROTECTED LAYOUT */}
+
+          <Route
             element={
               <ProtectedRoute>
-                <JobMatch />
+                <DashboardLayout />
               </ProtectedRoute>
             }
-          />
+          >
+
+            <Route
+              path="/dashboard"
+              element={<Dashboard />}
+            />
+
+            <Route
+              path="/resume-analyzer"
+              element={<ResumeAnalyzer />}
+            />
+
+            <Route
+              path="/interview-prep"
+              element={<InterviewPrep />}
+            />
+
+            <Route
+              path="/job-match"
+              element={<JobMatch />}
+            />
+
+          </Route>
+
         </Routes>
       </main>
 
-      {/* Hide Footer on dashboard pages */}
+      {/* Public Footer */}
       {!hideLayout && <Footer />}
     </div>
   );
 }
-
 
 function App() {
   return (

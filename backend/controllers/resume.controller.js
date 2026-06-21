@@ -1,7 +1,7 @@
 // backend/controllers/resume.controller.js
 
 import { createRequire } from "module";
-
+import { analyzeResumeWithAI } from "../services/ai.service.js";
 // CommonJS package support inside ES Module project
 const require = createRequire(import.meta.url);
 
@@ -26,18 +26,21 @@ export const analyzeResume = async (req, res) => {
     // extracted text
     const extractedText = pdfData.text;
 
-    console.log("Extracted Text:", extractedText);
+    //console.log("Extracted Text:", extractedText);
 
     const cleanedText = extractedText
   .replace(/\s+/g, " ")
   .trim()
-  .slice(0, 12000);   // limit text length
+  .slice(0, 2500);   // limit text length
+ console.log("Sending to Gemini...");
 
-    // send response temporarily
+  const aiResult = await analyzeResumeWithAI(
+      cleanedText
+    );
+
     return res.status(200).json({
       success: true,
-      message: "Resume text extracted successfully",
-      cleanedText,
+       analysis: aiResult,
     });
 
   } catch (error) {
@@ -45,7 +48,7 @@ export const analyzeResume = async (req, res) => {
 
     return res.status(500).json({
       success: false,
-      message: "Error parsing PDF",
+      message: "Resume analysis failed",
       error: error.message,
     });
   }
