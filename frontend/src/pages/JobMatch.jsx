@@ -89,12 +89,12 @@ const JobMatch = () => {
         }}
         className="
         rounded-3xl p-8 mb-8
-        bg-white dark:bg-slate-800
+        bg-white dark:bg-slate-900/50
         border border-slate-200 dark:border-slate-700
         shadow-lg
       "
       >
-        <h1 className="text-3xl font-bold">
+        <h1 className="text-3xl font-bold text-pink-600">
           AI Job Match 💼
         </h1>
 
@@ -107,7 +107,7 @@ const JobMatch = () => {
       <div
         className="
         rounded-3xl p-8 mb-8
-        bg-white dark:bg-slate-800
+        bg-white dark:bg-slate-900/50
         border border-slate-200 dark:border-slate-700
         shadow-lg
       "
@@ -170,7 +170,7 @@ const JobMatch = () => {
               AI is analyzing your profile...
             </p>
 
-            <p className="text-purple-500 text-sm mt-2">
+            <p className="text-pink-500 text-sm mt-2">
               Please wait 20–40 seconds ☕
             </p>
           </div>
@@ -205,7 +205,7 @@ const JobMatch = () => {
                     }}
                     className="
                     rounded-2xl p-6
-                    bg-white dark:bg-slate-800
+                    bg-white dark:bg-slate-900/50
                     border border-slate-200 dark:border-slate-700
                     shadow-lg
                   "
@@ -218,7 +218,7 @@ const JobMatch = () => {
                           {job.role}
                         </h3>
 
-                        <p className="text-gray-500 mt-1">
+                        <p className="text-gray-400 mt-1">
                           {job.company}
                         </p>
 
@@ -227,7 +227,7 @@ const JobMatch = () => {
                       <div
                         className="
                         px-3 py-2 rounded-xl
-                        bg-green-100 dark:bg-slate-700
+                        bg-green-100 dark:bg-black
                         text-green-600
                         font-semibold
                       "
@@ -251,7 +251,7 @@ const JobMatch = () => {
           <div
             className="
             rounded-2xl p-6
-            bg-white dark:bg-slate-800
+            bg-white dark:bg-slate-900/50
             border border-slate-200 dark:border-slate-700
           "
           >
@@ -286,7 +286,7 @@ const JobMatch = () => {
           <div
             className="
             rounded-2xl p-6
-            bg-white dark:bg-slate-800
+            bg-white dark:bg-slate-900/50
             border border-slate-200 dark:border-slate-700
           "
           >

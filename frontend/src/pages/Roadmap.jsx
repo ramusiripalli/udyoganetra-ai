@@ -62,7 +62,7 @@ const Roadmap = () => {
         mb-6
         rounded-2xl
         p-6
-        bg-white dark:bg-[#111827]
+        bg-white dark:bg-slate-900/50
         border border-slate-200 dark:border-slate-700
         shadow-lg
       "
@@ -87,7 +87,7 @@ const Roadmap = () => {
               <span className="text-pink-600">AI Career Roadmap</span>
             </h1>
 
-            <p className="mt-1 text-slate-500 dark:text-gray-400">
+            <p className="mt-1 text-slate-500 dark:text-gray-300">
               Let AI design your learning journey.
             </p>
           </div>
@@ -101,8 +101,8 @@ const Roadmap = () => {
         className="
         rounded-2xl
         p-6
-        bg-white dark:bg-[#111827]
-        border border-pink-500 dark:border-pink-700
+        bg-white dark:bg-slate-900/50
+        border-3 border-pink-400 dark:border-pink-400
         shadow-lg
       "
       >
@@ -122,7 +122,7 @@ const Roadmap = () => {
               }
               placeholder="React, JavaScript, Node.js..."
               className="
-              mt-2 w-full p-3 rounded-xl
+              mt-2 w-full p-3 rounded-xl text-black dark:text-white placeholder-slate-500
               border border-slate-300
               dark:border-slate-600
               bg-slate-50 dark:bg-slate-900
@@ -144,7 +144,7 @@ const Roadmap = () => {
               }
               placeholder="Frontend Engineer"
               className="
-              mt-2 w-full p-3 rounded-xl
+              mt-2 w-full p-3 rounded-xl placeholder-slate-500
               border border-slate-300
               dark:border-slate-600
               bg-slate-50 dark:bg-slate-900
@@ -167,7 +167,7 @@ const Roadmap = () => {
               }
               placeholder="120"
               className="
-              mt-2 w-full p-3 rounded-xl
+              mt-2 w-full p-3 rounded-xl  placeholder-slate-500
               border border-slate-300
               dark:border-slate-600
               bg-slate-50 dark:bg-slate-900
@@ -236,7 +236,7 @@ const Roadmap = () => {
           className="
           rounded-2xl
           p-6
-          bg-white dark:bg-[#111827]
+          bg-white dark:bg-slate-900/50
           border border-slate-200 dark:border-slate-700
           shadow-lg
           transition-all
@@ -251,7 +251,7 @@ const Roadmap = () => {
           "
           >
             <div>
-              <p className="text-sm text-purple-500 font-semibold">
+              <p className="text-sm text-pink-500 font-semibold">
                 {phase.phase}
               </p>
 
@@ -280,7 +280,7 @@ const Roadmap = () => {
                 key={i}
                 className="
                 p-3 rounded-xl
-                bg-slate-100 dark:bg-slate-800
+                bg-slate-100 dark:bg-slate-900/10
                 border border-slate-200 dark:border-slate-700
                 flex items-center gap-3
               "

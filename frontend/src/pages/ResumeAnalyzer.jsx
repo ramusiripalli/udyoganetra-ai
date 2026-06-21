@@ -54,11 +54,11 @@ const ResumeAnalyzer = () => {
 
       {/* Heading */}
       <div className="mb-8">
-        <h1 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">
+        <h1 className="text-3xl md:text-4xl font-bold text-pink-600">
           Resume ATS Analyzer 🚀
         </h1>
 
-        <p className="mt-2 text-slate-500 dark:text-gray-400">
+        <p className="mt-2 text-slate-500 dark:text-gray-200">
           Upload your resume and let AI evaluate your ATS score instantly.
         </p>
       </div>
@@ -159,7 +159,7 @@ const ResumeAnalyzer = () => {
             <motion.div
               whileHover={{ y: -5 }}
               className="
-                bg-white dark:bg-slate-800
+                bg-white dark:bg-slate-900/50
                 rounded-3xl p-8 shadow-lg
                 border border-slate-200 dark:border-slate-700
               "
@@ -196,7 +196,7 @@ const ResumeAnalyzer = () => {
             <motion.div
               whileHover={{ y: -5 }}
               className="
-                bg-white dark:bg-slate-800
+                bg-white dark:bg-slate-900/50
                 rounded-3xl p-8 shadow-lg
                 border border-slate-200 dark:border-slate-700
               "
@@ -220,7 +220,7 @@ const ResumeAnalyzer = () => {
             <motion.div
               whileHover={{ y: -4 }}
               className="
-                bg-white dark:bg-slate-800
+                bg-white dark:bg-slate-900/50
                 rounded-3xl p-8 shadow-lg
                 border border-slate-200 dark:border-slate-700
               "
@@ -242,7 +242,7 @@ const ResumeAnalyzer = () => {
             <motion.div
               whileHover={{ y: -4 }}
               className="
-                bg-white dark:bg-slate-800
+                bg-white dark:bg-slate-900/50
                 rounded-3xl p-8 shadow-lg
                 border border-slate-200 dark:border-slate-700
               "
@@ -265,7 +265,7 @@ const ResumeAnalyzer = () => {
           <motion.div
             whileHover={{ y: -4 }}
             className="
-              bg-white dark:bg-slate-800
+              bg-white dark:bg-slate-900/50
               rounded-3xl p-8 shadow-lg
               border border-slate-200 dark:border-slate-700
             "

@@ -134,12 +134,12 @@ const InterviewPrep = () => {
       {/* HEADER */}
       <div
         className="
-        bg-white dark:bg-slate-800
+        bg-white dark:bg-slate-900/50
         p-8 rounded-3xl mb-8
         border border-slate-200 dark:border-slate-700
       "
       >
-        <h1 className="text-3xl font-bold">
+        <h1 className="text-3xl font-bold text-pink-600">
           AI Interview Prep 🎤
         </h1>
 
@@ -151,7 +151,7 @@ const InterviewPrep = () => {
       {/* FORM */}
       <div
         className="
-        bg-white dark:bg-slate-800
+        bg-white dark:bg-slate-900/50
         p-8 rounded-3xl mb-8
         border border-slate-200 dark:border-slate-700
       "
@@ -164,7 +164,7 @@ const InterviewPrep = () => {
               setSkills(e.target.value)
             }
             placeholder="React, Node.js"
-            className="p-4 rounded-xl border dark:bg-slate-900"
+            className="p-4 rounded-xl border placeholder-slate-500 dark:bg-slate-900/50"
           />
 
           <input
@@ -175,7 +175,7 @@ const InterviewPrep = () => {
               )
             }
             placeholder="2 years"
-            className="p-4 rounded-xl border dark:bg-slate-900"
+            className="p-4 rounded-xl border placeholder-slate-500 dark:bg-slate-900/50"
           />
 
           <select
@@ -185,7 +185,7 @@ const InterviewPrep = () => {
                 e.target.value
               )
             }
-            className="p-4 rounded-xl border dark:bg-slate-900"
+            className="p-4 rounded-xl border placeholder-slate-500 dark:bg-slate-900"
           >
             <option>easy</option>
             <option>medium</option>
@@ -220,7 +220,7 @@ const InterviewPrep = () => {
               AI is preparing 50 interview questions...
             </p>
 
-            <p className="text-sm mt-2 text-purple-500">
+            <p className="text-md mt-2 text-pink-500">
               This may take 20–40 seconds.
               Please relax ☕
             </p>
@@ -254,7 +254,7 @@ const InterviewPrep = () => {
                   }}
                   className="
                   p-6 rounded-2xl
-                  bg-white dark:bg-slate-800
+                  bg-white dark:bg-slate-900/50
                   border border-slate-200 dark:border-slate-700
                 "
                 >
@@ -263,7 +263,7 @@ const InterviewPrep = () => {
                     <span
                       className="
                       px-3 py-1 rounded-lg
-                      bg-purple-100 dark:bg-slate-700
+                      bg-pink-500
                     "
                     >
                       {q.category}
@@ -277,22 +277,22 @@ const InterviewPrep = () => {
                     </span>
                   </div>
 
-                  <h3 className="font-semibold text-lg">
+                  <h3 className="font-semibold text-lg text-red-500">
                     {q.question}
                   </h3>
 
                   <div
                     className="
                     mt-4 p-4 rounded-xl
-                    bg-slate-100 dark:bg-slate-900
+                    bg-slate-100 dark:bg-black/40
                   "
                   >
                     <p>
-                      <b>Answer:</b>{" "}
+                      <b className="text-green-500">Answer:</b>{" "}
                       {q.answer}
                     </p>
 
-                    <p className="mt-3 text-purple-500">
+                    <p className="mt-3 text-violet-400">
                       <b>Tip:</b>{" "}
                       {q.tip}
                     </p>

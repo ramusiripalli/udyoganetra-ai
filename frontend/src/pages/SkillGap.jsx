@@ -111,7 +111,7 @@ const SkillGap = () => {
         animate={{ opacity: 1 }}
         className="
         rounded-3xl p-8 mb-8
-        bg-white dark:bg-slate-800
+        bg-white dark:bg-slate-900/50
         border border-slate-200 dark:border-slate-700
         shadow-lg
       "
@@ -129,7 +129,7 @@ const SkillGap = () => {
       <div
         className="
         rounded-3xl p-8 mb-8
-        bg-white dark:bg-slate-800
+        bg-white dark:bg-slate-900/50
         border border-slate-200 dark:border-slate-700
         shadow-lg
       "
@@ -247,7 +247,7 @@ const SkillGap = () => {
           <div
             className="
             rounded-2xl p-6
-            bg-white dark:bg-slate-800
+            bg-white dark:bg-slate-900/50
             border border-slate-200 dark:border-slate-700
           "
           >
@@ -264,7 +264,7 @@ const SkillGap = () => {
           <div
             className="
             rounded-2xl p-6
-            bg-white dark:bg-slate-800
+            bg-white dark:bg-slate-900/50
             border border-slate-200 dark:border-slate-700
           "
           >
@@ -295,7 +295,7 @@ const SkillGap = () => {
           <div
             className="
             rounded-2xl p-6
-            bg-white dark:bg-slate-800
+            bg-white dark:bg-slate-900/50
             border border-slate-200 dark:border-slate-700
           "
           >
@@ -326,7 +326,7 @@ const SkillGap = () => {
           <div
             className="
             rounded-2xl p-6
-            bg-white dark:bg-slate-800
+            bg-white dark:bg-slate-900/50
             border border-slate-200 dark:border-slate-700
           "
           >
