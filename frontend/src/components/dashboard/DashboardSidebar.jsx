@@ -105,7 +105,7 @@ const DashboardSidebar = ({ isOpen, setIsOpen }) => {
             shadow-md
           "
           >
-            <p className="font-semibold text-lg text-black dark:text-white">
+            <p className="font-semibold text-2xl text-black dark:text-white">
               {user?.name || "User"}
             </p>
 
@@ -127,13 +127,9 @@ const DashboardSidebar = ({ isOpen, setIsOpen }) => {
                   onClick={() => setIsOpen(false)}
                   className={({ isActive }) =>
                     isActive
-                      ? `
-                        flex items-center gap-4
-                        p-4 rounded-xl
-
+                      ? ` flex items-center gap-4 p-4 rounded-xl
                         bg-gradient-to-r
                         from-purple-100 to-pink-100
-
                         dark:from-slate-800
                         dark:to-slate-800
 

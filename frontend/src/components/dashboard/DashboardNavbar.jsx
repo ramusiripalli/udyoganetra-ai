@@ -59,7 +59,7 @@ const DashboardNavbar = ({ setIsOpen }) => {
             {greeting} 👋
           </h2>
 
-          <p className="hidden md:block text-sm text-slate-500 dark:text-gray-400">
+          <p className="hidden md:block text-sm text-orange-500 dark:text-yellow-400">
             Ready to build your dream career?
           </p>
         </div>
