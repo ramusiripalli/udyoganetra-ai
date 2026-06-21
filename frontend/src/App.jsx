@@ -25,6 +25,7 @@ import ProtectedRoute from "./routes/ProtectedRoute";
 
 // NEW Dashboard Layout
 import DashboardLayout from "./components/dashboard/DashboardLayout";
+import Roadmap from "./pages/Roadmap";
 
 function AppContent() {
   const location = useLocation();
@@ -35,6 +36,7 @@ function AppContent() {
     "/resume-analyzer",
     "/interview-prep",
     "/job-match",
+    "/roadmap"
   ];
 
   const hideLayout =
@@ -111,6 +113,11 @@ function AppContent() {
             <Route
               path="/job-match"
               element={<JobMatch />}
+            />
+
+            <Route
+              path="/roadmap"
+              element={<Roadmap />}
             />
 
           </Route>

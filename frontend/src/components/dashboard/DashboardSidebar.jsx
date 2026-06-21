@@ -33,10 +33,10 @@ const DashboardSidebar = ({ isOpen, setIsOpen }) => {
   const menuItems = [
     { icon: <FaHome />, text: "Dashboard", path: "/dashboard" },
     { icon: <FaFileAlt />, text: "Resume ATS", path: "/resume-analyzer" },
+    { icon: <FaRoad />, text: "Roadmap", path: "roadmap" },
     { icon: <FaMicrophone />, text: "Interview Prep", path: "/interview-prep" },
     { icon: <FaBriefcase />, text: "Job Match", path: "/job-match" },
     { icon: <FaBrain />, text: "Skill Gap", path: "#" },
-    { icon: <FaRoad />, text: "Roadmap", path: "#" },
     { icon: <FaClipboardList />, text: "Tracker", path: "#" },
   ];
 
