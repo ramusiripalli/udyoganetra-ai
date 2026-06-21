@@ -87,7 +87,7 @@ const DashboardSidebar = ({ isOpen, setIsOpen }) => {
           <h1
             className="
             hidden lg:block
-            text-3xl font-bold mb-10
+            text-3xl font-bold mb-5
             bg-gradient-to-r
             from-purple-600 to-pink-600
             bg-clip-text text-transparent
@@ -100,7 +100,7 @@ const DashboardSidebar = ({ isOpen, setIsOpen }) => {
           <motion.div
             whileHover={{ scale: 1.02 }}
             className="
-            rounded-2xl p-4 mb-3 bg-white dark:bg-black
+            rounded-2xl p-4 mb-5 bg-white dark:bg-black
             border-3 border-pink-700
             shadow-md
           "
@@ -175,7 +175,7 @@ const DashboardSidebar = ({ isOpen, setIsOpen }) => {
             text-white
             font-semibold
             flex items-center justify-center gap-3
-            shadow-lg
+            shadow-lg cursor-pointer
           "
           >
             <FaSignOutAlt />
