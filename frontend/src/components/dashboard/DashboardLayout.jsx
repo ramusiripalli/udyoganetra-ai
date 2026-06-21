@@ -8,7 +8,7 @@ const DashboardLayout = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="flex min-h-screen bg-slate-100 dark:bg-slate-900/30 transition-colors duration-300">
+    <div className="flex min-h-screen bg-slate-100 dark:bg-slate-900/20 transition-colors duration-300">
 
       {/* Sidebar */}
       <DashboardSidebar

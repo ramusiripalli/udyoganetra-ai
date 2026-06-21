@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
-  FaBell,
   FaBars,
 } from "react-icons/fa";
 import { Sun, Moon } from "lucide-react";
@@ -38,7 +37,7 @@ const DashboardNavbar = ({ setIsOpen }) => {
       className="
       px-4 md:px-8 py-4
       border-b border-slate-200 dark:border-slate-700
-      bg-white dark:bg-black
+      bg-white dark:bg-slate-900/90
       backdrop-blur-lg
       flex items-center justify-between
       sticky top-0 z-30
@@ -55,29 +54,16 @@ const DashboardNavbar = ({ setIsOpen }) => {
         </button>
 
         <div>
-          <h2 className="text-lg md:text-2xl font-bold">
+          <h2 className="text-lg md:text-2xl font-bold mb-1">
             {greeting} 👋
           </h2>
 
-          <p className="hidden md:block text-sm text-orange-500 dark:text-yellow-400">
+          <p className="hidden md:block text-sm text-orange-500 dark:text-yellow-400 text-xl">
             Ready to build your dream career?
           </p>
         </div>
       </div>
 
-      {/* CENTER SEARCH */}
-      {/* <div className="hidden lg:flex items-center
-      bg-slate-100 dark:bg-slate-800
-      px-4 py-3 rounded-xl w-96">
-
-        <FaSearch className="text-gray-400" />
-
-        <input
-          type="text"
-          placeholder="Search jobs, companies..."
-          className="ml-3 bg-transparent outline-none w-full"
-        />
-      </div> */}
 
       {/* RIGHT */}
       <div className="flex items-center gap-3">
@@ -88,7 +74,7 @@ const DashboardNavbar = ({ setIsOpen }) => {
               w-11 h-11 rounded-full
               flex items-center justify-center
               border border-gray-300 dark:border-slate-700
-              bg-white dark:bg-blue-900/40
+              bg-white dark:bg-blue-900/40 mr-5
               hover:scale-125 transition-all cursor-pointer
             "
           >
@@ -107,21 +93,13 @@ const DashboardNavbar = ({ setIsOpen }) => {
 
 
 
-        
-
-        <button className="w-11 h-11 rounded-full
-        bg-slate-100 dark:bg-red-400
-        flex items-center justify-center">
-          <FaBell />
-        </button>
-
         <div
           className="
           hidden md:flex
           w-11 h-11 rounded-full
           bg-linear-to-r
           from-purple-600 to-pink-600
-          text-white
+          text-white 
           items-center justify-center
           font-bold
         "

@@ -60,9 +60,9 @@ const DashboardSidebar = ({ isOpen, setIsOpen }) => {
         ${isOpen ? "translate-x-0" : "-translate-x-full"}
         lg:translate-x-0
 
-        bg-gradient-to-b
-        from-white via-gray-50 to-gray-100
-        dark:from-black dark:via-blue-900/10 dark:to-black
+        bg-linear-to-b
+        from-orange-300  via-white to-green-300
+        dark:from-slate-900 dark:via-blue-900/10 dark:to-slate-900
 
         border-r border-slate-200 dark:border-slate-700
         flex flex-col justify-between
@@ -75,7 +75,7 @@ const DashboardSidebar = ({ isOpen, setIsOpen }) => {
           {/* Mobile Close Button */}
           <div className="flex items-center justify-between lg:hidden mb-6">
             <h1 className="text-2xl font-bold bg-linear-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-              UdyogaNetra
+              UdyogaNetra AI
             </h1>
 
             <button onClick={() => setIsOpen(false)}>
@@ -100,8 +100,8 @@ const DashboardSidebar = ({ isOpen, setIsOpen }) => {
           <motion.div
             whileHover={{ scale: 1.02 }}
             className="
-            rounded-2xl p-4 mb-5 bg-white dark:bg-black
-            border-3 border-pink-700
+            rounded-2xl p-4 mb-5 bg-white dark:bg-slate-900/10
+            border-3 border-pink-400
             shadow-md
           "
           >
@@ -167,7 +167,7 @@ const DashboardSidebar = ({ isOpen, setIsOpen }) => {
             className="
             w-full py-3 rounded-xl mt-5 mb-5
             bg-linear-to-r
-            from-red-600 to-yellow-600
+            from-red-500 to-red-600
             text-white
             font-semibold
             flex items-center justify-center gap-3
