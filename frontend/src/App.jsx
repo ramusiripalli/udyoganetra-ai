@@ -26,6 +26,7 @@ import ProtectedRoute from "./routes/ProtectedRoute";
 // NEW Dashboard Layout
 import DashboardLayout from "./components/dashboard/DashboardLayout";
 import Roadmap from "./pages/Roadmap";
+import SkillGap from "./pages/SkillGap";
 
 function AppContent() {
   const location = useLocation();
@@ -36,7 +37,8 @@ function AppContent() {
     "/resume-analyzer",
     "/interview-prep",
     "/job-match",
-    "/roadmap"
+    "/roadmap",
+    "/skill-gap"
   ];
 
   const hideLayout =
@@ -118,6 +120,11 @@ function AppContent() {
             <Route
               path="/roadmap"
               element={<Roadmap />}
+            />
+
+            <Route
+              path="/skill-gap"
+              element={<SkillGap />}
             />
 
           </Route>

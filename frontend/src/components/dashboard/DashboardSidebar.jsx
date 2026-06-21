@@ -36,7 +36,7 @@ const DashboardSidebar = ({ isOpen, setIsOpen }) => {
     { icon: <FaRoad />, text: "Roadmap", path: "roadmap" },
     { icon: <FaMicrophone />, text: "Interview Prep", path: "/interview-prep" },
     { icon: <FaBriefcase />, text: "Job Match", path: "/job-match" },
-    { icon: <FaBrain />, text: "Skill Gap", path: "#" },
+    { icon: <FaBrain />, text: "Skill Gap", path: "/skill-gap" },
     { icon: <FaClipboardList />, text: "Tracker", path: "#" },
   ];
 
@@ -88,7 +88,7 @@ const DashboardSidebar = ({ isOpen, setIsOpen }) => {
             className="
             hidden lg:block
             text-3xl font-bold mb-5
-            bg-gradient-to-r
+            bg-linear-to-r
             from-purple-600 to-pink-600
             bg-clip-text text-transparent
           "
@@ -128,7 +128,7 @@ const DashboardSidebar = ({ isOpen, setIsOpen }) => {
                   className={({ isActive }) =>
                     isActive
                       ? ` flex items-center gap-4 p-4 rounded-xl
-                        bg-gradient-to-r
+                        bg-linear-to-r
                         from-purple-100 to-pink-100
                         dark:from-slate-800
                         dark:to-slate-800
