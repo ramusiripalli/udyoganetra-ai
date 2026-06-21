@@ -13,7 +13,6 @@ const Landing = () => {
         <ShowcaseSection/>
        <HowItWorks/>
        <CallToAction/>
-
     </div>
   );
 };
