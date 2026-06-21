@@ -15,7 +15,7 @@ const CallToAction = () => {
         <h2 className="text-3xl sm:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
           Start Building Your Career With
 
-          <span className="block bg-gradient-to-r from-cyan-400 via-purple-600 to-pink-600 text-transparent bg-clip-text mt-2">
+          <span className="block bg-linear-to-r from-cyan-400 via-purple-600 to-pink-600 text-transparent bg-clip-text mt-2">
             AI Powered Guidance
           </span>
         </h2>
@@ -28,14 +28,14 @@ const CallToAction = () => {
 
           <Link
             to="/register"
-            className="px-8 py-3 rounded-full font-semibold bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:scale-105 transition duration-300 shadow-lg"
+            className="px-8 py-3 rounded-full font-semibold bg-linear-to-r from-purple-600 to-pink-500 text-white hover:scale-105 transition duration-300 shadow-lg"
           >
             Create Account
           </Link>
 
           <Link
             to="/login"
-            className="px-8 py-3 rounded-full border border-gray-300 dark:border-red-700 text-gray-900 dark:text-white hover:bg-green-600 dark:hover:bg-green-800 transition duration-300"
+            className="px-8 py-3 rounded-full border-3 border-gray-300 dark:border-white text-gray-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-800 transition duration-300"
           >
             Login
           </Link>

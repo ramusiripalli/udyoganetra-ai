@@ -32,11 +32,11 @@ const ShowcaseSection = () => {
 
         </h2>
 
-        <p className="mt-5 text-gray-600 dark:text-slate-200 text-base sm:text-lg leading-relaxed">
+        <p className="mt-5 text-gray-600 dark:text-slate-300 text-base sm:text-lg leading-relaxed">
 
           Access opportunities from top hiring platforms in one place.
           No more switching between multiple job portals — everything
-          you need for your career journey is available inside UdyogaNetra AI.
+          you need for your career journey is available inside <span className="text-pink-400">UdyogaNetra AI</span>.
 
         </p>
       </div>
@@ -53,10 +53,10 @@ const ShowcaseSection = () => {
             relative
             rounded-2xl
             p-5
-            bg-white
-            dark:bg-slate-900/30
-            border border-purple-200 dark:border-purple-600/30
-            shadow-md hover:shadow-xl
+            bg-slate-100/90
+            dark:bg-slate-900/90
+            border border-purple-200 dark:border-purple-100/60
+            shadow-md hover:shadow-xl dark:hover:shadow-slate-800
             transition-all duration-500
             hover:-translate-y-2
             overflow-hidden
@@ -73,27 +73,12 @@ const ShowcaseSection = () => {
               absolute inset-0
               opacity-0 group-hover:opacity-100
               transition duration-500
-              bg-gradient-to-r
-              from-cyan-500/5
-              to-purple-500/5
+              bg-linear-to-r
+              from-purple-500/5
+              to-pink-500/5
               "
             ></div>
 
-            {/* Badge */}
-
-            <div
-              className="
-              absolute top-3 right-3
-              text-[10px] sm:text-xs
-              px-2 py-1
-              rounded-full bg-white border
-              dark:bg-cyan-500/10
-              text-yellow-500
-              font-medium
-              "
-            >
-              Source
-            </div>
 
             {/* Text */}
 
@@ -106,7 +91,7 @@ const ShowcaseSection = () => {
                 text-gray-900 dark:text-white
                 text-center
                 leading-relaxed
-                group-hover:text-pink-500
+                group-hover:text-orange-400
                 transition duration-300
                 typewriter
                 "
@@ -125,7 +110,7 @@ const ShowcaseSection = () => {
         .typewriter {
           overflow: hidden;
           white-space: nowrap;
-          border-right: 2px solid cyan;
+          border-right: 2px solid orange;
           animation: typing 6s steps(20) infinite, blink 1s step-end infinite;
         }
 
@@ -138,7 +123,7 @@ const ShowcaseSection = () => {
 
         @keyframes blink {
           0%, 100% { border-color: transparent }
-          50% { border-color: #06b6d4; }
+          50% { border-color: orange; }
         }
       `}</style>
     </section>

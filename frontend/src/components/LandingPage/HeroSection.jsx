@@ -11,15 +11,13 @@ const HeroSection = () => {
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        <p className="text-cyan-500 font-semibold mb-3 tracking-wide">
+        <p className="text-orange-500 font-semibold mb-3 tracking-wide">
           AI Powered Career Platform 🚀
         </p>
 
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight text-gray-900 dark:text-white">
-
           Find Your Dream Job With
-
-          <span className="block bg-gradient-to-r from-purple-600 via-fuchsia-500 to-pink-600 text-transparent bg-clip-text mt-2">
+          <span className="block bg-linear-to-r from-purple-600 via-fuchsia-500 to-pink-600 text-transparent bg-clip-text mt-2">
             Intelligent AI Guidance
           </span>
         </h1>
@@ -34,16 +32,16 @@ const HeroSection = () => {
 
           <Link
             to="/register"
-            className="px-7 py-3 rounded-full font-semibold bg-linear-to-r from-purple-600 to-pink-500 text-white shadow-lg hover:scale-105 transition duration-300"
+            className="px-7 py-3 rounded-full font-bold bg-linear-to-r from-purple-600 to-pink-500 text-white  shadow-xl hover:scale-105 transition duration-300"
           >
             Get Started
           </Link>
 
           <Link
-            to="/features"
-            className="px-7 py-3 rounded-full border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-slate-800 transition duration-300"
+            to="/ai-features"
+            className="px-7 py-3 rounded-full border border-pink-600 dark:border-pink-400 text-gray-900 dark:text-white hover:bg-yellow-100 dark:hover:bg-slate-800 transition duration-300"
           >
-            Explore AI Tools
+            Explore AI Features
           </Link>
 
         </div>
@@ -56,23 +54,23 @@ const HeroSection = () => {
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 1.2 }}
       >
-        <div className="rounded-2xl p-8 bg-white dark:bg-black/90 border border-pink-600 dark:border-pink-600 shadow-2xl backdrop-blur-xl">
+        <div className="rounded-2xl p-8 bg-slate-100 dark:bg-slate-900/80 border-2 border-black dark:border-pink-400 shadow-md shadow-black dark:shadow-pink-500 backdrop-blur-xl">
 
-          <h3 className="text-2xl font-bold text-purple-600 mb-6">
+          <h3 className="text-2xl font-bold text-orange-400 mb-6">
             AI Career Analysis
           </h3>
 
           <div className="space-y-5">
 
             <div className="flex justify-between">
-              <span className="text-gray-600 dark:text-gray-400">
+              <span className="text-black dark:text-gray-300">
                 Resume ATS Score
               </span>
               <span className="font-bold text-green-500">92%</span>
             </div>
 
             <div className="flex justify-between">
-              <span className="text-gray-600 dark:text-gray-400">
+              <span className="text-black dark:text-gray-300">
                 Best Role Match
               </span>
               <span className="font-bold text-blue-500">
@@ -81,7 +79,7 @@ const HeroSection = () => {
             </div>
 
             <div className="flex justify-between">
-              <span className="text-gray-600 dark:text-gray-400">
+              <span className="text-black dark:text-gray-300">
                 Missing Skills
               </span>
               <span className="font-bold text-red-400">
@@ -90,7 +88,7 @@ const HeroSection = () => {
             </div>
 
             <div className="flex justify-between">
-              <span className="text-gray-600 dark:text-gray-400">
+              <span className="text-black dark:text-gray-300">
                 Interview Readiness
               </span>
               <span className="font-bold text-purple-400">84%</span>
@@ -98,8 +96,8 @@ const HeroSection = () => {
 
           </div>
 
-          <div className="mt-8 p-3 rounded-xl bg-white dark:bg-black border border-pink-500/50">
-            <p className="text-md text-pink-600  dark:text-yellow-300 text-center">
+          <div className="mt-8 p-3 rounded-xl bg-white dark:bg-black border dark:border-slate-100/50">
+            <p className="text-md text-pink-700  dark:text-white text-center">
               AI is analyzing your career growth opportunities...
             </p>
           </div>

@@ -21,7 +21,7 @@ const problems = [
 
 const WhyUdyogaNetra = () => {
   return (
-    <section className="py-20 px-6 sm:px-8 bg-gray-50 dark:bg-slate-950/80">
+    <section className="py-20 px-6 sm:px-8 bg-slate-100 dark:bg-slate-900/90">
 
       <motion.div
         className="max-w-7xl mx-auto text-center"
@@ -35,8 +35,8 @@ const WhyUdyogaNetra = () => {
           Why <span className="bg-linear-to-r from-purple-600  to-pink-600 text-transparent bg-clip-text">UdyogaNetra</span> ?
         </h2>
 
-        <p className="mt-4 text-gray-600 dark:text-gray-200 max-w-3xl mx-auto">
-          Getting a job is not just about applying. UdyogaNetra uses <span className="text-pink-600">AI</span> to help candidates discover opportunities, build better resumes, prepare for interviews, and grow their careers.
+        <p className="mt-4 text-black dark:text-white max-w-3xl mx-auto">
+          Getting a job is not just about applying. UdyogaNetra uses <span className="text-green-400 text-xl">AI</span> to help candidates discover opportunities, build better resumes, prepare for interviews, and grow their careers.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-14">
@@ -44,18 +44,18 @@ const WhyUdyogaNetra = () => {
           {problems.map((item, index) => (
             <motion.div
               key={index}
-              className="p-7 rounded-2xl bg-white dark:bg-black border border-gray-200 dark:border-purple-500/30 shadow-lg hover:-translate-y-2 transition duration-300"
+              className="p-7 rounded-2xl bg-white dark:bg-black/30 border-2 border-gray-500 dark:border-pink-100/50 shadow-lg hover:-translate-y-2 transition duration-300"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.15 }}
               viewport={{ once: true }}
             >
 
-              <div className="w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center text-white font-bold text-xl mb-4 mx-auto">
+              <div className="w-12 h-12 rounded-full bg-linear-to-r from-purple-600 to-pink-600 flex items-center justify-center text-white font-bold text-xl mb-4 mx-auto">
                 {index + 1}
               </div>
 
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+              <h3 className="text-xl font-semibold text-black dark:text-white mb-3">
                 {item.title}
               </h3>
 
