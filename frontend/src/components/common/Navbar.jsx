@@ -13,7 +13,7 @@ const Navbar = () => {
       initial={{ y: -60, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl bg-white/70 dark:bg-blue-900/20
+      className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl bg-white/70 dark:bg-slate-900/10
         border-b border-gray-200 dark:border-slate-600">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
@@ -35,23 +35,15 @@ const Navbar = () => {
 
           <Link
             to="/"
-            className="text-black dark:text-gray-200 hover:text-pink-500 transition
-            relative after:absolute after:w-0 after:h-0.5 after:bg-pink-500 after:left-0 after:-bottom-1 hover:after:w-full after:transition-all"
+            className="text-black dark:text-white  transition text-xl
+            relative after:absolute after:w-0 after:h-0.5 after:bg-pink-400 after:left-0 after:-bottom-1 hover:after:w-full after:transition-all"
           >
             Home
           </Link>
 
           <Link
-            to="/jobs"
-            className="text-black dark:text-gray-200 hover:text-pink-500 transition
-            relative after:absolute after:w-0 after:h-0.5 after:bg-pink-500 after:left-0 after:-bottom-1 hover:after:w-full after:transition-all"
-          >
-            Jobs
-          </Link>
-
-          <Link
             to="/ai-features"
-            className="text-black dark:text-gray-200 hover:text-pink-500 transition
+            className="text-black dark:text-white text-xl transition
             relative after:absolute after:w-0 after:h-0.5 after:bg-pink-500 after:left-0 after:-bottom-1 hover:after:w-full after:transition-all"
           >
             AI Features
@@ -88,10 +80,7 @@ const Navbar = () => {
           {/* Login */}
           <Link
             to="/login"
-            className="
-              hidden md:block
-              text-gray-700 dark:text-gray-200
-              hover:text-pink-500 transition
+            className="hidden md:block text-gray-700 dark:text-white text-xl transition ml-3
               relative after:absolute after:w-0 after:h-0.5 after:bg-pink-400 after:left-0 after:-bottom-1 hover:after:w-full after:transition-all
             "
           >
@@ -103,7 +92,7 @@ const Navbar = () => {
           <button
             className="
               hidden md:block
-              px-5 py-2.5 rounded-xl
+              px-7 py-2.5 rounded-xl ml-3
               bg-gradient-to-r from-purple-600  to-pink-600
               text-white font-medium
               hover:scale-110 transition-all cursor-pointer
@@ -132,7 +121,7 @@ const Navbar = () => {
             md:hidden
             px-6 pb-6 pt-2
             bg-white dark:bg-slate-950
-            border-t border-gray-200 dark:border-slate-800
+            border-t border-gray-200 dark:border-slate-800 
           "
         >
           <div className="flex flex-col gap-4">
@@ -141,26 +130,25 @@ const Navbar = () => {
               Home
             </Link>
 
-            <Link to="/jobs" onClick={() => setMenuOpen(false)}>
-              Jobs
-            </Link>
 
-            <Link to="/ai-tools" onClick={() => setMenuOpen(false)}>
-              AI Tools
+            <Link to="/ai-features" onClick={() => setMenuOpen(false)}>
+              AI Features
             </Link>
 
             <Link to="/login" onClick={() => setMenuOpen(false)}>
               Login
             </Link>
 
+            <Link to="/register">
             <button
-              className="
+              className=" px-7
                 py-2 rounded-lg
                 bg-gradient-to-r from-purple-600  to-pink-600 text-white
               "
             >
               Get Started
             </button>
+            </Link>
 
           </div>
         </div>
