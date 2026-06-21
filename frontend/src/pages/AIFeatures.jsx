@@ -51,9 +51,9 @@ const features = [
 const AIFeatures = () => {
   return (
     <section
-      className="py-15 px-6 sm:px-8 bg-gradient-to-br  from-gray-50 to-white
+      className="py-15 px-6 sm:px-8 bg-linear-to-br  from-slate-100 to-white
       dark:from-black
-      dark:to-slate-800
+      dark:to-slate-900/90
       transition-all duration-500
       "
     >
@@ -148,7 +148,7 @@ const AIFeatures = () => {
                   className={`
                   w-16 h-16
                   rounded-2xl
-                  bg-gradient-to-r ${feature.bg}
+                  bg-linear-to-r ${feature.bg}
                   flex items-center justify-center
                   shadow-lg
                   group-hover:scale-110
