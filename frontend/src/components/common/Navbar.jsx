@@ -19,7 +19,7 @@ const Navbar = () => {
 
         {/* Logo */}
         <Link to="/" className="text-3xl font-bold tracking-tight">
-          <span className="bg-gradient-to-r from-purple-600 via-fuchsia-500 to-pink-600 text-transparent bg-clip-text">
+          <span className="bg-linear-to-r from-purple-600 via-fuchsia-500 to-pink-600 text-transparent bg-clip-text">
             Udyoga
           </span>
           <span className="text-gray-900 dark:text-white">

@@ -59,7 +59,7 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-black flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <div className="min-h-screen bg-slate-100/40 dark:bg-slate-900/20 flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
 
       {/* ✅ Toast Notifications */}
       <Toaster position="top-center"
@@ -78,10 +78,10 @@ const Register = () => {
         initial={{ y: 50, opacity: 0, scale: 0.95 }}
         animate={{ y: 0, opacity: 1, scale: 1 }}
         transition={{ type: 'spring', stiffness: 80, damping: 12 }}
-        className="w-full max-w-sm sm:max-w-md bg-slate-50 dark:bg-black rounded-2xl shadow-lg shadow-pink-400/40 border-2 border-pink-600 p-6 sm:p-8 mt-15 mb-15"
+        className="w-full max-w-sm sm:max-w-lg bg-slate-100/90 dark:bg-slate-900/90 rounded-2xl shadow-xl shadow-pink-400/40 border-2 border-pink-500 p-6 sm:p-10 mt-10 mb-15"
       >
         <h2 className="text-2xl sm:text-3xl font-bold text-white text-center mb-4 sm:mb-6">
-          <span className="text-black dark:text-white">Create your </span> <span className="text-pink-700 dark:text-purple-500">UdyogaNetra</span> <span className='text-black dark:text-white'>Account </span>
+          <span className="text-black dark:text-white">Create your </span> <span className="bg-linear-to-r from-purple-600 via-fuchsia-500 to-pink-600 text-transparent bg-clip-text">UdyogaNetra</span> <span className='text-black dark:text-white'>Account </span>
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
@@ -90,7 +90,7 @@ const Register = () => {
             type="text"
             name="name"
             placeholder="Full Name"
-            className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-transparent border border-pink-700/70 rounded-lg text-black dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 transition"
+            className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-transparent border border-slate-900/40 dark:border-slate-100/40 rounded-lg text-black dark:text-white dark:placeholder-gray-200 focus:outline-none focus:ring-2 dark:focus:ring-white transition"
             onChange={handleChange}
           />
 
@@ -99,7 +99,7 @@ const Register = () => {
             type="email"
             name="email"
             placeholder="Email"
-            className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-transparent border border-pink-700/70 rounded-lg text-black dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 transition"
+            className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-transparent border border-slate-900/40 dark:border-slate-100/40 rounded-lg text-black dark:text-white dark:placeholder-gray-200 focus:outline-none focus:ring-2 dark:focus:ring-white transition"
             onChange={handleChange}
           />
 
@@ -108,12 +108,12 @@ const Register = () => {
               type={showPassword ? 'text' : 'password'}
               name="password"
               placeholder="Password"
-              className="w-full px-3 py-2 sm:px-4 sm:py-3 pr-9 sm:pr-10 bg-transparent border border-pink-700/70 rounded-lg text-black dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 transition"
+              className="w-full px-3 py-2 sm:px-4 sm:py-3 pr-9 sm:pr-10 bg-transparent border border-slate-900/40 dark:border-slate-100/40 rounded-lg text-black dark:text-white dark:placeholder-gray-200 focus:outline-none focus:ring-2 dark:focus:ring-white transition"
               onChange={handleChange}
             />
             <span
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-2 sm:right-3 top-2.5 sm:top-3 text-lg sm:text-xl text-white cursor-pointer"
+              className="absolute right-2 sm:right-3 top-2.5 sm:top-3 text-lg sm:text-xl text-black dark:text-white cursor-pointer"
             >
               {showPassword ? <FaEyeSlash /> : <FaEye />}
             </span>
@@ -124,12 +124,12 @@ const Register = () => {
               type={showConfirmPassword ? 'text' : 'password'}
               name="confirmPassword"
               placeholder="Confirm Password"
-              className="w-full px-3 py-2 sm:px-4 sm:py-3 pr-9 sm:pr-10 bg-transparent border border-pink-500/70 rounded-lg text-black dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 transition"
+              className="w-full px-3 py-2 sm:px-4 sm:py-3 pr-9 sm:pr-10 bg-transparent border border-slate-900/40 dark:border-slate-100/40 rounded-lg text-black dark:text-white dark:placeholder-gray-200 focus:outline-none focus:ring-2 dark:focus:ring-white transition"
               onChange={handleChange}
             />
             <span
               onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-              className="absolute right-2 sm:right-3 top-2.5 sm:top-3 text-lg sm:text-xl text-white cursor-pointer"
+              className="absolute right-2 sm:right-3 top-2.5 sm:top-3 text-lg sm:text-xl text-black dark:text-white cursor-pointer"
             >
               {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
             </span>
@@ -138,15 +138,15 @@ const Register = () => {
           <motion.button
             whileHover={{ scale: 1.03 }}
             type="submit"
-            className="w-full bg-linear-to-r from-purple-600 to-pink-700 text-white py-2 sm:py-3 rounded-lg font-semibold hover:shadow-pink-500 transition-all duration-300 shadow-md text-base sm:text-lg"
+            className="w-full bg-linear-to-r from-purple-600 to-pink-700 text-white py-2 sm:py-3 rounded-lg font-semibold hover:shadow-slate-900 dark:hover:shadow-slate-400 transition-all duration-300 shadow-md text-base sm:text-lg"
           >
             Sign UP
           </motion.button>
         </form>
 
-        <p className="text-center text-black dark:text-gray-200 mt-4 sm:mt-5 text-sm sm:text-base">
+        <p className="text-center text-black dark:text-gray-100 mt-4 sm:mt-5 text-sm sm:text-base">
           Already have an account?{' '}
-          <Link to="/login" className="text-pink-600 dark:text-purple-400 text-xl  hover:underline">
+          <Link to="/login" className="text-orange-400 text-xl  hover:underline">
             Login here
           </Link>
         </p>

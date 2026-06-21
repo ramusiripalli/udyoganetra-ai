@@ -77,9 +77,9 @@ const Login = () => {
 
 
       {/* 🧾 Login Form Card */}
-      <div className="w-full max-w-sm sm:max-w-md bg-white dark:bg-black border-2 border-pink-600 rounded-2xl p-6 sm:p-8 shadow-lg shadow-pink-400/80 mt-20 sm:mt-15 mb-15">
+      <div className="w-full max-w-sm sm:max-w-md bg-white dark:bg-slate-900/90 border-2 border-pink-600 rounded-2xl p-6 sm:p-8 shadow-lg shadow-pink-400/80 mt-20 sm:mt-15 mb-15">
         <h2 className="text-2xl sm:text-3xl font-bold text-center text-black dark:text-white mb-4 sm:mb-6">
-          Login to <span className="text-pink-600">Udyoganetra AI</span>
+          Login to <span className="bg-linear-to-r from-purple-600 via-fuchsia-500 to-pink-600 text-transparent bg-clip-text">Udyoganetra AI</span>
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
@@ -123,7 +123,7 @@ const Login = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-linear-to-r from-purple-600 to-pink-600 text-white py-2 sm:py-3 rounded-lg font-semibold hover:shadow-[#ff00c3] transition-all duration-200 shadow-md text-sm sm:text-base"
+            className="w-full bg-linear-to-r from-purple-600 to-pink-600 text-white py-2 sm:py-3 rounded-lg font-semibold hover:shadow-slate-400 transition-all duration-200 shadow-md text-sm sm:text-base"
           >
             {loading ? "Logging in..." : "Login"}
           </button>
