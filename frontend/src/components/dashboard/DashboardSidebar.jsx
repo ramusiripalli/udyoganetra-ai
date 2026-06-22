@@ -10,7 +10,6 @@ import {
   FaBriefcase,
   FaBrain,
   FaRoad,
-  FaClipboardList,
   FaSignOutAlt,
   FaTimes,
 } from "react-icons/fa";
@@ -37,7 +36,7 @@ const DashboardSidebar = ({ isOpen, setIsOpen }) => {
     { icon: <FaMicrophone />, text: "Interview Prep", path: "/interview-prep" },
     { icon: <FaBriefcase />, text: "Job Match", path: "/job-match" },
     { icon: <FaBrain />, text: "Skill Gap", path: "/skill-gap" },
-    { icon: <FaClipboardList />, text: "Tracker", path: "#" },
+ 
   ];
 
   return (

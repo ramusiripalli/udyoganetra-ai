@@ -275,16 +275,15 @@ const Dashboard = () => {
         whileHover={{ scale: 1.01 }}
         className="
         rounded-3xl p-8
-        bg-gradient-to-r
-        from-purple-600 to-pink-700
+        bg-slate-100 dark:bg-slate-900/50 border-2
         text-white shadow-xl
       "
       >
-        <h2 className="text-2xl font-bold">
+        <h2 className="text-2xl font-bold bg-linear-to-r from-pink-400 to-pink-300 text-transparent bg-clip-text">
           The Future Of Careers Is AI Powered ⚡
         </h2>
 
-        <p className="mt-4 leading-8 text-indigo-100">
+        <p className="mt-4 leading-8 bg-linear-to-r from-orange-500 to-green-500 text-transparent bg-clip-text text-xl">
           UdyogaNetra AI is building a complete career ecosystem.
 
           Learn faster.

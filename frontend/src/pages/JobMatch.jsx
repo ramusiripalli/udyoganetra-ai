@@ -218,7 +218,7 @@ const JobMatch = () => {
                           {job.role}
                         </h3>
 
-                        <p className="text-gray-400 mt-1">
+                        <p className=" text-black dark:text-gray-200 mt-1">
                           {job.company}
                         </p>
 
@@ -227,9 +227,9 @@ const JobMatch = () => {
                       <div
                         className="
                         px-3 py-2 rounded-xl
-                        bg-green-100 dark:bg-black
+                        bg-green-100 
                         text-green-600
-                        font-semibold
+                        font-extrabold text-2xl
                       "
                       >
                         {job.matchScore}%
