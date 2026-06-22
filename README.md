@@ -5,6 +5,10 @@ UdyogaNetra AI is an intelligent AI powered career platform designed to help stu
 
 Instead of switching between multiple platforms for resume analysis, interview preparation, career planning and job searching, **UdyogaNetra AI combines everything into one AI powered ecosystem.**
 
+## 🌐 Live Demo
+
+👉 [UdyogaNetra AI Live Website](https://udyoganetra-ai.vercel.app/)
+
 ### Our Mission
 
 > Help job seekers learn faster, apply smarter and get hired better using AI.
