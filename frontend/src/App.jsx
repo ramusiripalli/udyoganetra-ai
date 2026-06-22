@@ -12,7 +12,6 @@ import Footer from "./components/common/Footer";
 import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Jobs from "./pages/Jobs";
 import AIFeatures from "./pages/AIFeatures";
 
 import Dashboard from "./pages/Dashboard";
@@ -74,11 +73,6 @@ function AppContent() {
           <Route
             path="/register"
             element={<Register />}
-          />
-
-          <Route
-            path="/jobs"
-            element={<Jobs />}
           />
 
           <Route
