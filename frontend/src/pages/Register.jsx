@@ -138,7 +138,7 @@ const Register = () => {
           <motion.button
             whileHover={{ scale: 1.03 }}
             type="submit"
-            className="w-full bg-linear-to-r from-purple-600 to-pink-700 text-white py-2 sm:py-3 rounded-lg font-semibold hover:shadow-slate-900 dark:hover:shadow-slate-400 transition-all duration-300 shadow-md text-base sm:text-lg"
+            className="w-full bg-linear-to-r from-purple-600 to-pink-700 text-white py-2 sm:py-3 rounded-lg font-semibold hover:shadow-slate-900 dark:hover:shadow-slate-400 transition-all duration-300 shadow-md text-base sm:text-lg cursor-pointer"
           >
             Sign UP
           </motion.button>
